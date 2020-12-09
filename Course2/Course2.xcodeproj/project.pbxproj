@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */; };
+		8066B5B32581478400F294B7 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5B22581478400F294B7 /* Classes.swift */; };
+		8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */; };
+		8066B5BF25814CA600F294B7 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */; };
+		8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */; };
 		8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328D2577F6960096D5D4 /* AppDelegate.swift */; };
 		809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328F2577F6960096D5D4 /* SceneDelegate.swift */; };
 		809732922577F6960096D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732912577F6960096D5D4 /* ViewController.swift */; };
@@ -14,9 +19,18 @@
 		809732972577F6960096D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809732962577F6960096D5D4 /* Assets.xcassets */; };
 		8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809732982577F6960096D5D4 /* LaunchScreen.storyboard */; };
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
+		80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B32258128B8005D5261 /* FriendsCell.swift */; };
+		80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B3625812D1B005D5261 /* MyFriendsTableViewController.swift */; };
+		80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B3925813966005D5261 /* ProfileCollectionController.swift */; };
+		80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B4225813CA5005D5261 /* ProfileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
+		8066B5B22581478400F294B7 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsCell.swift; sourceTree = "<group>"; };
+		8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
+		8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
 		8097328A2577F6950096D5D4 /* Course2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Course2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8097328D2577F6960096D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8097328F2577F6960096D5D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +40,10 @@
 		809732992577F6960096D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8097329B2577F6960096D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		80F50B32258128B8005D5261 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		80F50B3625812D1B005D5261 /* MyFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewController.swift; sourceTree = "<group>"; };
+		80F50B3925813966005D5261 /* ProfileCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionController.swift; sourceTree = "<group>"; };
+		80F50B4225813CA5005D5261 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +57,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8066B5AC2581470000F294B7 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				8066B5AD2581472200F294B7 /* AllGroups */,
+				8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */,
+				8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		8066B5AD2581472200F294B7 /* AllGroups */ = {
+			isa = PBXGroup;
+			children = (
+				8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */,
+				8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */,
+			);
+			path = AllGroups;
+			sourceTree = "<group>";
+		};
+		8066B5B12581477500F294B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8066B5B22581478400F294B7 /* Classes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		809732812577F6950096D5D4 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +103,9 @@
 		8097328C2577F6950096D5D4 /* Course2 */ = {
 			isa = PBXGroup;
 			children = (
+				8066B5B12581477500F294B7 /* Model */,
+				8066B5AC2581470000F294B7 /* Groups */,
+				80F50B312581281A005D5261 /* Friends */,
 				8097328D2577F6960096D5D4 /* AppDelegate.swift */,
 				8097328F2577F6960096D5D4 /* SceneDelegate.swift */,
 				809732912577F6960096D5D4 /* ViewController.swift */,
@@ -68,6 +116,17 @@
 				8097329B2577F6960096D5D4 /* Info.plist */,
 			);
 			path = Course2;
+			sourceTree = "<group>";
+		};
+		80F50B312581281A005D5261 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				80F50B32258128B8005D5261 /* FriendsCell.swift */,
+				80F50B4225813CA5005D5261 /* ProfileCell.swift */,
+				80F50B3625812D1B005D5261 /* MyFriendsTableViewController.swift */,
+				80F50B3925813966005D5261 /* ProfileCollectionController.swift */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +199,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8066B5BF25814CA600F294B7 /* MyGroupsViewController.swift in Sources */,
 				809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */,
+				8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */,
+				80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */,
+				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,
 				8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */,
+				8066B5B32581478400F294B7 /* Classes.swift in Sources */,
+				8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */,
+				80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */,
 				809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */,
+				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
+				8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -95,12 +95,12 @@ class LoginViewController: UIViewController {
         
         func checkUserData() -> Bool {
             guard let login = loginTField.text,let password = passTField.text else { return false }
-            return login == "admin" && password == "root"
+            return login == "1" && password == "1"
         }
         
         func showLoginError() {
             // Создаем контроллер
-            let alter = UIAlertController(title: "Erro", message: "Login or password isn't correct", preferredStyle: .alert)
+            let alter = UIAlertController(title: "Error", message: "Login or password isn't correct", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alter.addAction(action)
             present(alter, animated: true, completion: nil)
