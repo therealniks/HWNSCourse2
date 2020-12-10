@@ -30,5 +30,5 @@ class Group{
         self.avatar = UIImage(named: "avatar")!
     
     
-}
+    }
 }
