@@ -17,7 +17,6 @@ var myGroups = [Group]()
             segue.identifier == "addGroup",
             let controller = segue.source as? AllGroupsTableViewController,
             let indexPath = controller.tableView.indexPathForSelectedRow,
-            //!myGroups.elementsEqual(controller.groups, by: { $0.id == $1.id })
             !myGroups.contains(where: {$0.id == controller.groups[indexPath.row].id})
         else { return }
         myGroups.append(controller.groups[indexPath.row])

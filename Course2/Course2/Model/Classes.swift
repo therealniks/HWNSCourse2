@@ -5,8 +5,9 @@
 //  Created by N!kS on 09.12.2020.
 //
 import UIKit
+
 class User{
-    var id: UInt32
+    let id: UInt32
     var name: String
     var surname: String
     var avatar : UIImage
@@ -19,7 +20,7 @@ class User{
 }
 
 class Group{
-    var id: UInt32
+    let id: UInt32
     var title: String
     var description: String
     var avatar : UIImage
