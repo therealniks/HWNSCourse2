@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8066374B2589287B00A75A8D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066374A2589287B00A75A8D /* AvatarView.swift */; };
 		8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */; };
 		8066B5B32581478400F294B7 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5B22581478400F294B7 /* Classes.swift */; };
 		8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8066374A2589287B00A75A8D /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		8066B5B22581478400F294B7 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsCell.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8066374925891C3000A75A8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8066374A2589287B00A75A8D /* AvatarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8066B5AC2581470000F294B7 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 		809732812577F6950096D5D4 = {
 			isa = PBXGroup;
 			children = (
+				8066374925891C3000A75A8D /* View */,
 				8097328C2577F6950096D5D4 /* Course2 */,
 				8097328B2577F6950096D5D4 /* Products */,
 			);
@@ -208,6 +219,7 @@
 				8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */,
 				8066B5B32581478400F294B7 /* Classes.swift in Sources */,
 				8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */,
+				8066374B2589287B00A75A8D /* AvatarView.swift in Sources */,
 				80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */,
 				809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */,
 				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
