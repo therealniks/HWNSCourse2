@@ -11,8 +11,7 @@ private let reuseIdentifier = "Cell"
 
 class ProfileCollectionController: UICollectionViewController {
 
-
-
+        
     /*
     // MARK: - Navigation
 
@@ -28,6 +27,7 @@ class ProfileCollectionController: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         return 1
     }
+    
 
 
 
@@ -36,10 +36,7 @@ class ProfileCollectionController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
         as? ProfileCell
-    
-        // Configure the cell
         cell?.image.image = UIImage(named: "avatar")!
-    
         return cell!
     }
 
@@ -75,3 +72,4 @@ class ProfileCollectionController: UICollectionViewController {
     */
 
 }
+
