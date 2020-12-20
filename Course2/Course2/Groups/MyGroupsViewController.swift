@@ -21,14 +21,14 @@ var myGroups = [Group]()
         else { return }
         myGroups.append(controller.groups[indexPath.row])
         tableView.reloadData()
-
-        
     }
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups.count
     }
+    
+
     
  
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
