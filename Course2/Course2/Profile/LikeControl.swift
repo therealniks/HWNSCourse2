@@ -17,10 +17,10 @@ import UIKit
             likeButton.setImage(isLiked ? self.likedImage : self.unlikedImage, for: .normal)
         }
     }
-    private var likeButton = UIButton(type: .custom)
-    private var likedImage = UIImage(systemName: "heart")?.withRenderingMode(.alwaysOriginal)
-    private var unlikedImage = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate)
-   override init(frame: CGRect) {
+    var likeButton = UIButton(type: .custom)
+    private var likedImage = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal) 
+    private var unlikedImage = UIImage(systemName: "heart")?.withTintColor(.black, renderingMode: .alwaysTemplate)
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
     }
@@ -29,12 +29,13 @@ import UIKit
         self.setupView()
     }
     private func setupView() {
-        likeButton.backgroundColor = .white
-        likeButton.imageView?.contentMode = .scaleAspectFill
-        likeButton.setTitleColor(.black, for: .normal)
+       likeButton.imageView?.contentMode = .scaleAspectFill
+        likeButton.setTitleColor(.red, for: .normal)
         likeButton.tintColor = .red
+        likeButton.setTitle("\(likeCount)", for: .normal)
+        likeButton.setImage(unlikedImage, for: .normal)
         likeButton.addTarget(self, action: #selector(pushLikeButton(_ :)), for: .touchUpInside)
-        self.didAddSubview(likeButton)
+        self.addSubview(likeButton)
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -45,22 +46,11 @@ import UIKit
     {
         isLiked.toggle()
         likeCount = isLiked ? (likeCount + 1) : (likeCount - 1)
+
         animate()
         self.sendActions(for: .valueChanged)
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     private func animate(){
         UIView.animate(withDuration: 0.1, animations: {
             let newImage = self.isLiked ? self.likedImage : self.unlikedImage

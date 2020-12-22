@@ -34,6 +34,9 @@ class ProfileCollectionController: UICollectionViewController {
         cell?.image.image = UIImage(named: "avatar")!
         return cell!
     }
+    
+    
+
 
     // MARK: UICollectionViewDelegate
 
