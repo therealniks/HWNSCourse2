@@ -19,17 +19,3 @@ class User{
     }
 }
 
-class Group{
-    let id: UInt32
-    var title: String
-    var description: String
-    var avatar : UIImage
-    init(id: UInt32, title: String, description: String) {
-        self.id = id
-        self.title = title
-        self.description = description
-        self.avatar = UIImage(named: "avatar")!
-    
-    
-    }
-}
