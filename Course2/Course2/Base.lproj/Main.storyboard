@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -23,6 +23,19 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="Ciw-Qw-DjA">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="hdQ-T6-IXo" customClass="LikedControl" customModule="Course2" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="501" width="387" height="107"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <viewLayoutGuide key="safeArea" id="Lg2-BW-fnf"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="TtV-Iv-got" customClass="ProfileCell" customModule="Course2" customModuleProvider="target">
                                 <rect key="frame" x="33.666666666666664" y="0.0" width="347" height="350"/>
@@ -38,26 +51,17 @@
                                                 <constraint firstAttribute="width" constant="250" id="mIg-Cg-Dxj"/>
                                             </constraints>
                                         </imageView>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friendsID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EX-3R-w1B">
-                                            <rect key="frame" x="130.66666666666666" y="315" width="86" height="27"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="9EX-3R-w1B" firstAttribute="top" secondItem="JjX-fb-0PL" secondAttribute="bottom" constant="5" id="3DK-Mx-fxP"/>
                                         <constraint firstItem="JjX-fb-0PL" firstAttribute="centerX" secondItem="ano-Ib-Uom" secondAttribute="centerX" id="9jW-TO-GD2"/>
                                         <constraint firstItem="JjX-fb-0PL" firstAttribute="centerY" secondItem="ano-Ib-Uom" secondAttribute="centerY" id="cmP-EO-lkI"/>
                                         <constraint firstItem="JjX-fb-0PL" firstAttribute="leading" secondItem="ano-Ib-Uom" secondAttribute="leading" constant="48" id="hvV-v2-zR9"/>
-                                        <constraint firstItem="9EX-3R-w1B" firstAttribute="centerX" secondItem="ano-Ib-Uom" secondAttribute="centerX" id="oQD-rt-P2I"/>
                                         <constraint firstItem="JjX-fb-0PL" firstAttribute="top" secondItem="ano-Ib-Uom" secondAttribute="top" constant="40" id="xpm-dh-z2g"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="347" height="350"/>
                                 <connections>
                                     <outlet property="image" destination="JjX-fb-0PL" id="GhQ-cQ-0aZ"/>
-                                    <outlet property="nameSurname" destination="9EX-3R-w1B" id="mC8-OE-oL4"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -66,7 +70,9 @@
                             <outlet property="delegate" destination="bb3-CO-EJK" id="Keq-Rh-Bgj"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Clv-ER-fnh"/>
+                    <navigationItem key="navigationItem" id="Clv-ER-fnh">
+                        <nil key="title"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOr-ZS-ArX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="113.83928571428571"/>
+            <point key="canvasLocation" x="-64" y="114"/>
         </scene>
         <!--My Groups View Controller-->
         <scene sceneID="nLA-Jq-ZOc">
@@ -264,6 +270,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ip-Fm-7Gf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3979.7101449275365" y="573.88392857142856"/>
+        </scene>
+        <!--Feed Table View Controller-->
+        <scene sceneID="uMQ-4t-XEA">
+            <objects>
+                <tableViewController id="lbr-N5-JIB" customClass="FeedTableViewController" customModule="Course2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ycs-WM-lcT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="lbr-N5-JIB" id="5yu-QS-Uiz"/>
+                            <outlet property="delegate" destination="lbr-N5-JIB" id="TSR-Tm-abg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="rve-uq-DZp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LWF-fU-c7r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4034.7826086956525" y="1295.7589285714284"/>
         </scene>
         <!--All Groups Table View Controller-->
         <scene sceneID="OME-Bh-0n0">
@@ -371,8 +396,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="friendAvatar" destination="dwa-hR-b5v" id="GPo-C1-ck4"/>
-                                    <outlet property="friendID" destination="6UG-yg-Nb4" id="6ad-Tb-a9F"/>
+                                    <outlet property="friendAvatar" destination="dwa-hR-b5v" id="v5U-iK-DeN"/>
+                                    <outlet property="friendID" destination="6UG-yg-Nb4" id="Kf6-Hg-zkP"/>
                                     <segue destination="bb3-CO-EJK" kind="show" id="BPi-Bs-yTy"/>
                                 </connections>
                             </tableViewCell>
@@ -405,11 +430,12 @@
                     <connections>
                         <segue destination="gcO-NV-dhV" kind="relationship" relationship="viewControllers" id="o34-Cm-HvV"/>
                         <segue destination="QW2-ls-prX" kind="relationship" relationship="viewControllers" id="8Mv-64-KBu"/>
+                        <segue destination="6kB-z4-10e" kind="relationship" relationship="viewControllers" id="Ndg-tW-eF7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfs-0x-sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2118.840579710145" y="113.83928571428571"/>
+            <point key="canvasLocation" x="796" y="114"/>
         </scene>
         <!--Friends-->
         <scene sceneID="xVE-3B-Mg3">
@@ -449,8 +475,28 @@
             </objects>
             <point key="canvasLocation" x="3125" y="574"/>
         </scene>
+        <!--Feed-->
+        <scene sceneID="MIc-gC-RU4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6kB-z4-10e" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" selectedImage="newspaper.fill" catalog="system" id="RzD-xy-NuB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DF9-NE-NuT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lbr-N5-JIB" kind="relationship" relationship="rootViewController" id="NnA-wZ-vyy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XwX-bJ-uHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3124.6376811594205" y="1295.7589285714284"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.rectangle.fill.on.folder.fill" catalog="system" width="128" height="96"/>

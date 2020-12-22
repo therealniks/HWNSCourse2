@@ -27,12 +27,6 @@ class ProfileCollectionController: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         return 1
     }
-    
-
-
-
-
-
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
         as? ProfileCell
