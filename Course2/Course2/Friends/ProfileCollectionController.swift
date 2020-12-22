@@ -11,7 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class ProfileCollectionController: UICollectionViewController {
 
-        
+
+    
     /*
     // MARK: - Navigation
 
