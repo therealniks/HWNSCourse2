@@ -21,7 +21,7 @@
 		809732972577F6960096D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809732962577F6960096D5D4 /* Assets.xcassets */; };
 		8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809732982577F6960096D5D4 /* LaunchScreen.storyboard */; };
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
-		80AF35DD258E5661007CB04E /* LikedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikedControl.swift */; };
+		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
 		80F1CA23258F94BB00F94577 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA22258F94BB00F94577 /* Group.swift */; };
 		80F1CA2A258F950F00F94577 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA29258F950F00F94577 /* FeedCell.swift */; };
 		80F1CA2D258F952600F94577 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA2C258F952600F94577 /* FeedTableViewController.swift */; };
@@ -49,7 +49,7 @@
 		809732992577F6960096D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8097329B2577F6960096D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		80AF35DC258E5661007CB04E /* LikedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedControl.swift; sourceTree = "<group>"; };
+		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		80F1CA22258F94BB00F94577 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		80F1CA29258F950F00F94577 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		80F1CA2C258F952600F94577 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		80AF35DB258E5642007CB04E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				80AF35DC258E5661007CB04E /* LikedControl.swift */,
+				80AF35DC258E5661007CB04E /* LikeControl.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 				809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */,
 				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
 				8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */,
-				80AF35DD258E5661007CB04E /* LikedControl.swift in Sources */,
+				80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */,
 				80F1CA2A258F950F00F94577 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
