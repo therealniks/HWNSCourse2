@@ -23,8 +23,6 @@ class FeedTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.register(UINib(nibName: "FeedCell", bundle: nil),
-                           forCellReuseIdentifier: "MyFeedCell")
     }
 
     // MARK: - Table view data source
@@ -41,15 +39,20 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyFeedCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
             as? FeedCell
               else {return UITableViewCell()}
         cell.feedCommentCount.text = String(news[indexPath.row].feedCommentCount)
         cell.feedShareCount.text =  String(news[indexPath.row].feedCommentCount)
         cell.feedLikeCount.text = String(news[indexPath.row].feedCommentCount)
         cell.feedText.text = String(news[indexPath.row].feedCommentCount)
-        //cell.feedImage.images = news[indexPath.row].feedLogo
+        cell.feedImage.image = news[indexPath.row].feedLogo
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 
