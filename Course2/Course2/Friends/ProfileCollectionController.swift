@@ -11,7 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class ProfileCollectionController: UICollectionViewController {
 
-        
+
+    
     /*
     // MARK: - Navigation
 
@@ -33,6 +34,9 @@ class ProfileCollectionController: UICollectionViewController {
         cell?.image.image = UIImage(named: "avatar")!
         return cell!
     }
+    
+    
+
 
     // MARK: UICollectionViewDelegate
 
