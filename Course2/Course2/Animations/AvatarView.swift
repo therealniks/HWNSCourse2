@@ -31,4 +31,12 @@ class AvatarView: UIView {
         self.layer.shadowRadius = shadowRadius
     }
 }
+    class FriendAvatarImageView: UIImageView{
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            layer.cornerRadius = bounds.height / 2
+        }
+        
+    }
+
 
