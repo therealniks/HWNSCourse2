@@ -9,19 +9,24 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    
-    
-    
     @IBOutlet weak var appName: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginTField: UITextField!
     @IBOutlet weak var passLabel: UILabel!
     @IBOutlet weak var passTField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBAction func animate (_ sender: Any)
+    {
+        //showAnimatingDotsInImageView()
+        
+    }
+ 
+    
     @IBAction func loginButton(_ sender: Any) {
-        let login = loginTField.text!
-        let password = passTField.text!
-        login == "admin" && password == "root" ?  print("успешная авторизация") : print("неуспешная авторизация")
+        // let login = loginTField.text!
+        //let password = passTField.text!
+       // login == "admin" && password == "root" ?  print("успешная авторизация") : print("неуспешная авторизация")
+
     }
 
     override func viewDidLoad() {
@@ -75,9 +80,11 @@ class LoginViewController: UIViewController {
         
         func showLoginError() {
             // Создаем контроллер
-            let alter = UIAlertController(title: "Error", message: "Login or password isn't correct", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Login or password isn't correct", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alter.addAction(action)
-            present(alter, animated: true, completion: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
+
+    
     }
