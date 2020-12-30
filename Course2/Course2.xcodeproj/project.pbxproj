@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A1E57259BB2D80090FCF5 /* ScaleImage.swift */; };
 		8066374B2589287B00A75A8D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066374A2589287B00A75A8D /* AvatarView.swift */; };
 		8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */; };
 		8066B5B32581478400F294B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5B22581478400F294B7 /* User.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		802A1E57259BB2D80090FCF5 /* ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale\U0010Image.swift"; sourceTree = "<group>"; };
 		8066374A2589287B00A75A8D /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		8066B5B22581478400F294B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -74,8 +76,10 @@
 		8066374925891C3000A75A8D /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				80AF35DC258E5661007CB04E /* LikeControl.swift */,
 				8066374A2589287B00A75A8D /* AvatarView.swift */,
 				80F2497B25988AF5002D5018 /* LoginViewAnimation.swift */,
+				802A1E57259BB2D80090FCF5 /* ScaleImage.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -149,7 +153,8 @@
 		80AF35DB258E5642007CB04E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				80AF35DC258E5661007CB04E /* LikeControl.swift */,
+				80F50B4225813CA5005D5261 /* ProfileCell.swift */,
+				80F50B3925813966005D5261 /* ProfileCollectionController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -167,9 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				80F50B32258128B8005D5261 /* FriendsCell.swift */,
-				80F50B4225813CA5005D5261 /* ProfileCell.swift */,
 				80F50B3625812D1B005D5261 /* MyFriendsTableViewController.swift */,
-				80F50B3925813966005D5261 /* ProfileCollectionController.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */,
 				8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */,
 				80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */,
+				802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */,
 				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,
 				80F1CA23258F94BB00F94577 /* Group.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,

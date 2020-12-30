@@ -41,9 +41,6 @@ class MyFriendsTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         (firstLetters, sortedFriends) = sort(myFriends)
-
-        
-        
     }
     
     // MARK: - Table view data source
@@ -77,8 +74,6 @@ class MyFriendsTableViewController: UITableViewController {
                 cell.friendAvatar.photoImage.image = users[indexPath.row].avatar
                 
             }
-           // tableView.reloadData()
-            
         }
         
         return cell
@@ -125,7 +120,7 @@ extension MyFriendsTableViewController: UISearchBarDelegate {
         tableView.endEditing(true)
         tableView.reloadData()
     }
-    }
+}
 
 
 

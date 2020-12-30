@@ -12,7 +12,6 @@ class Feed{
     var feedShareCount :UInt
     var feedLikeCount: UInt
     var feedLogo : UIImage
-    
     init(feedText: String,feedCommentCount: UInt,feedShareCount :UInt,
         feedLikeCount: UInt, feedLogo : UIImage) {
         self.feedText = feedText

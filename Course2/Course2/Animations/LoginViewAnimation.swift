@@ -14,13 +14,11 @@ class LoginAnimation: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         backgroundColor = .clear
-        
         let circlesCount = 3
         let side: CGFloat = 10
         let offset: CGFloat = 5
         let x: CGFloat = 0
         let circleColor = UIColor.white
-        
         for i in 0..<circlesCount {
             let circle = CAShapeLayer()
             circle.opacity = 1
@@ -57,14 +55,11 @@ class LoginAnimation: UIView {
         scaleDown.toValue = 1.0
         scaleDown.duration = 2
         scaleDown.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-
         let group = CAAnimationGroup()
         group.animations = [scaleDown]
         group.repeatCount = Float.infinity
         group.autoreverses = false
-        
         group.duration = CFTimeInterval(1)
-
         return group
     }
 }

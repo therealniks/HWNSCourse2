@@ -9,7 +9,6 @@ import UIKit
 
 class ProfileCell: UICollectionViewCell {
 
-    @IBOutlet weak var nameSurname: UILabel!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var image: ScaleImage!
     
 }

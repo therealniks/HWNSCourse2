@@ -22,15 +22,11 @@ var myGroups = [Group]()
         myGroups.append(controller.groups[indexPath.row])
         tableView.reloadData()
     }
-    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myGroups.count
     }
-    
 
-    
- 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -46,7 +42,6 @@ var myGroups = [Group]()
         else { return UITableViewCell() }
         cell.MyGroupAvatar.image = myGroups[indexPath.row].avatar
         cell.MyGroupTitle.text = myGroups[indexPath.row].title
-
         return cell
     }
 
