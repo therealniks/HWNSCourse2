@@ -25,7 +25,7 @@
 		80F1CA23258F94BB00F94577 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA22258F94BB00F94577 /* Group.swift */; };
 		80F1CA2A258F950F00F94577 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA29258F950F00F94577 /* FeedCell.swift */; };
 		80F1CA2D258F952600F94577 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA2C258F952600F94577 /* FeedTableViewController.swift */; };
-		80F1CA30258F953200F94577 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80F1CA2F258F953200F94577 /* FeedCell.xib */; };
+		80F2497C25988AF5002D5018 /* LoginViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2497B25988AF5002D5018 /* LoginViewAnimation.swift */; };
 		80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B32258128B8005D5261 /* FriendsCell.swift */; };
 		80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B3625812D1B005D5261 /* MyFriendsTableViewController.swift */; };
 		80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F50B3925813966005D5261 /* ProfileCollectionController.swift */; };
@@ -53,7 +53,7 @@
 		80F1CA22258F94BB00F94577 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		80F1CA29258F950F00F94577 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		80F1CA2C258F952600F94577 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
-		80F1CA2F258F953200F94577 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		80F2497B25988AF5002D5018 /* LoginViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewAnimation.swift; sourceTree = "<group>"; };
 		80F50B32258128B8005D5261 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		80F50B3625812D1B005D5261 /* MyFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewController.swift; sourceTree = "<group>"; };
 		80F50B3925813966005D5261 /* ProfileCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionController.swift; sourceTree = "<group>"; };
@@ -71,12 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8066374925891C3000A75A8D /* View */ = {
+		8066374925891C3000A75A8D /* Animations */ = {
 			isa = PBXGroup;
 			children = (
 				8066374A2589287B00A75A8D /* AvatarView.swift */,
+				80F2497B25988AF5002D5018 /* LoginViewAnimation.swift */,
 			);
-			path = View;
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		8066B5AC2581470000F294B7 /* Groups */ = {
@@ -131,7 +132,7 @@
 				80AF35DB258E5642007CB04E /* Profile */,
 				8066B5B12581477500F294B7 /* Model */,
 				8066B5AC2581470000F294B7 /* Groups */,
-				8066374925891C3000A75A8D /* View */,
+				8066374925891C3000A75A8D /* Animations */,
 				80F50B312581281A005D5261 /* Friends */,
 				8097328D2577F6960096D5D4 /* AppDelegate.swift */,
 				8097328F2577F6960096D5D4 /* SceneDelegate.swift */,
@@ -158,7 +159,6 @@
 			children = (
 				80F1CA29258F950F00F94577 /* FeedCell.swift */,
 				80F1CA2C258F952600F94577 /* FeedTableViewController.swift */,
-				80F1CA2F258F953200F94577 /* FeedCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -232,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */,
-				80F1CA30258F953200F94577 /* FeedCell.xib in Resources */,
 				809732972577F6960096D5D4 /* Assets.xcassets in Resources */,
 				809732952577F6960096D5D4 /* Main.storyboard in Resources */,
 			);
@@ -260,6 +259,7 @@
 				8066374B2589287B00A75A8D /* AvatarView.swift in Sources */,
 				80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */,
 				809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */,
+				80F2497C25988AF5002D5018 /* LoginViewAnimation.swift in Sources */,
 				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
 				8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */,
 				80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */,
