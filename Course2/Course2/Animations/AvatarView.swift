@@ -13,7 +13,6 @@ class AvatarView: UIView {
     @IBInspectable var shadowOpacity: Float = 0.8
     @IBInspectable var shadowRadius: CGFloat = 3
     let photoImage = UIImageView()
-
     override func awakeFromNib() {
         super.awakeFromNib()
         photoImage.layer.cornerRadius = self.frame.height/2

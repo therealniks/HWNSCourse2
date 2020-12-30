@@ -11,6 +11,4 @@ class MyGroupsCell: UITableViewCell {
 
     @IBOutlet weak var MyGroupTitle: UILabel!
     @IBOutlet weak var MyGroupAvatar: UIImageView!
-    
-
 }

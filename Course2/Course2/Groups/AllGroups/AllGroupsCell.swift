@@ -11,6 +11,4 @@ class AllGroupsCell: UITableViewCell {
 
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupLabel: UILabel!
-    
-
 }
