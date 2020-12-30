@@ -11,7 +11,7 @@ class Feed{
     var feedCommentCount: UInt
     var feedShareCount :UInt
     var feedLikeCount: UInt
-    var feedLogo : UIImageView
+    var feedLogo : UIImage
     
     init(feedText: String,feedCommentCount: UInt,feedShareCount :UInt,
         feedLikeCount: UInt, feedLogo : UIImage) {
@@ -19,6 +19,6 @@ class Feed{
         self.feedCommentCount = feedCommentCount
         self.feedShareCount = feedShareCount
         self.feedLikeCount = feedLikeCount
-        self.feedLogo = UIImageView.init(image: UIImage(named: "avatar")!)
+        self.feedLogo = UIImage(named: "avatar")!
     }
 }

@@ -39,7 +39,10 @@ class MyFriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         (firstLetters, sortedFriends) = sort(myFriends)
+
+        
         
     }
     
@@ -74,6 +77,7 @@ class MyFriendsTableViewController: UITableViewController {
                 cell.friendAvatar.photoImage.image = users[indexPath.row].avatar
                 
             }
+           // tableView.reloadData()
             
         }
         
@@ -85,15 +89,44 @@ class MyFriendsTableViewController: UITableViewController {
      override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         Array(firstLetters).map { String($0)}
     }
+
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! FriendsCell
+        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        cell.friendAvatar.transform = scale
+        cell.friendAvatar.alpha = 0.5
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        cell.friendAvatar.transform = .identity
+                        cell.friendAvatar.alpha = 1
+                        
+        })
+    }
 }
+
+
 
 
 extension MyFriendsTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filtredFriend = myFriends.filter{$0.surname.prefix(searchText.count) == searchText}
-       searching = true
+        searching = true
         tableView.reloadData()
         }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.endEditing(true)
+        tableView.reloadData()
     }
+    }
+
+
+
 
