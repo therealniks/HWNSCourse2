@@ -11,11 +11,15 @@ class User{
     var name: String
     var surname: String
     var avatar : UIImage
+    var photos: [UIImage]
     init(id: UInt32, name: String, surname: String) {
         self.id = id
         self.name = name
         self.surname = surname
-        self.avatar = UIImage(named: "avatar")!
+        self.avatar =  UIImage(named: "avatar")!
+        self.photos = [UIImage(named: "avatar")!,
+                       UIImage(named: "avatar")!,
+                       UIImage(named: "avatar")!]
     }
 }
 
