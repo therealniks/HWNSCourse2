@@ -15,14 +15,9 @@ class AllGroupsTableViewController: UITableViewController {
                   Group(id: 4, title: "python", description: "beautiful")]
 
     // MARK: - Table view data source
-
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         groups.count
     }
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath)
@@ -30,8 +25,6 @@ class AllGroupsTableViewController: UITableViewController {
         else { return UITableViewCell() }
         cell.groupImage.image = groups[indexPath.row].avatar
         cell.groupLabel.text = groups[indexPath.row].title
-
-
         return cell
     }
     
@@ -39,7 +32,4 @@ class AllGroupsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
- 
-
 }
