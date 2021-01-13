@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A1E57259BB2D80090FCF5 /* ScaleImage.swift */; };
+		802EE8F825AF59270048D8CD /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE8F725AF59270048D8CD /* UserSession.swift */; };
 		8066374B2589287B00A75A8D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066374A2589287B00A75A8D /* AvatarView.swift */; };
 		8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */; };
 		8066B5B32581478400F294B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5B22581478400F294B7 /* User.swift */; };
@@ -23,6 +24,10 @@
 		8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809732982577F6960096D5D4 /* LaunchScreen.storyboard */; };
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
 		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
+		80EC8F3D25AEF541002D018E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */; };
+		80EC8F4025AEF5B6002D018E /* InteractiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F3F25AEF5B6002D018E /* InteractiveManager.swift */; };
+		80EC8F4425AEF610002D018E /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F4325AEF610002D018E /* PopAnimator.swift */; };
+		80EC8F4725AEF61C002D018E /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F4625AEF61C002D018E /* PushAnimator.swift */; };
 		80F1CA23258F94BB00F94577 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA22258F94BB00F94577 /* Group.swift */; };
 		80F1CA2A258F950F00F94577 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA29258F950F00F94577 /* FeedCell.swift */; };
 		80F1CA2D258F952600F94577 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1CA2C258F952600F94577 /* FeedTableViewController.swift */; };
@@ -35,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		802A1E57259BB2D80090FCF5 /* ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale\U0010Image.swift"; sourceTree = "<group>"; };
+		802EE8F725AF59270048D8CD /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8066374A2589287B00A75A8D /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		8066B5AE2581475000F294B7 /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		8066B5B22581478400F294B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -52,6 +58,10 @@
 		8097329B2577F6960096D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		80EC8F3F25AEF5B6002D018E /* InteractiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveManager.swift; sourceTree = "<group>"; };
+		80EC8F4325AEF610002D018E /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		80EC8F4625AEF61C002D018E /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		80F1CA22258F94BB00F94577 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		80F1CA29258F950F00F94577 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		80F1CA2C258F952600F94577 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +90,10 @@
 				8066374A2589287B00A75A8D /* AvatarView.swift */,
 				80F2497B25988AF5002D5018 /* LoginViewAnimation.swift */,
 				802A1E57259BB2D80090FCF5 /* ScaleImage.swift */,
+				80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */,
+				80EC8F3F25AEF5B6002D018E /* InteractiveManager.swift */,
+				80EC8F4325AEF610002D018E /* PopAnimator.swift */,
+				80EC8F4625AEF61C002D018E /* PushAnimator.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -109,6 +123,7 @@
 				8066B5B22581478400F294B7 /* User.swift */,
 				80F1CA22258F94BB00F94577 /* Group.swift */,
 				80869405258FA639009F13ED /* Feed.swift */,
+				802EE8F725AF59270048D8CD /* UserSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80EC8F3D25AEF541002D018E /* CustomNavigationController.swift in Sources */,
 				8066B5BF25814CA600F294B7 /* MyGroupsViewController.swift in Sources */,
 				80869406258FA639009F13ED /* Feed.swift in Sources */,
 				809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */,
@@ -257,8 +273,10 @@
 				80F1CA23258F94BB00F94577 /* Group.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,
 				8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */,
+				802EE8F825AF59270048D8CD /* UserSession.swift in Sources */,
 				8066B5B32581478400F294B7 /* User.swift in Sources */,
 				80F1CA2D258F952600F94577 /* FeedTableViewController.swift in Sources */,
+				80EC8F4025AEF5B6002D018E /* InteractiveManager.swift in Sources */,
 				8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */,
 				8066374B2589287B00A75A8D /* AvatarView.swift in Sources */,
 				80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */,
@@ -267,6 +285,8 @@
 				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
 				8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */,
 				80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */,
+				80EC8F4725AEF61C002D018E /* PushAnimator.swift in Sources */,
+				80EC8F4425AEF610002D018E /* PopAnimator.swift in Sources */,
 				80F1CA2A258F950F00F94577 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
