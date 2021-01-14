@@ -110,8 +110,8 @@ class MyFriendsTableViewController: UITableViewController {
 extension MyFriendsTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filtredFriend = myFriends.filter{$0.surname.prefix(searchText.count) == searchText}
         searching = true
+        filtredFriend = myFriends.filter{$0.surname.prefix(searchText.count) == searchText}
         tableView.reloadData()
         }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -120,6 +120,14 @@ extension MyFriendsTableViewController: UISearchBarDelegate {
         tableView.endEditing(true)
         tableView.reloadData()
     }
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searching = false
+        searchBar.text = ""
+        tableView.endEditing(true)
+        tableView.reloadData()
+    }
+        
+    
 }
 
 
