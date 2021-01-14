@@ -451,7 +451,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="Fjo-ra-6QV">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Fjo-ra-6QV">
                             <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -571,7 +571,7 @@
         <!--Groups-->
         <scene sceneID="fAj-04-6oE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gcO-NV-dhV" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gcO-NV-dhV" customClass="CustomNavigationController" customModule="Course2" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="plus.rectangle.fill.on.folder.fill" catalog="system" id="uPb-aQ-Yfu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ayF-yO-dn1">
