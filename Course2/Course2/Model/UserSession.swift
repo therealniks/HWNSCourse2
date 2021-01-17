@@ -10,7 +10,7 @@ import UIKit
 class UserSession{
     static let instance = UserSession()
     private init(){}
-    let token = ""
-    let id: UInt = 0
+    var token = ""
+    var id: UInt = 0
     
 }
