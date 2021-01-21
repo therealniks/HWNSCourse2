@@ -9,22 +9,34 @@ import UIKit
 
 class AllGroupsTableViewController: UITableViewController {
 
-    var groups = [Group(id: 1, title: "C++", description: "Stronger"),
-                  Group(id: 2, title: "C#", description: ".NET"),
-                  Group(id: 3, title: "Swift", description: "Simply"),
-                  Group(id: 4, title: "python", description: "beautiful")]
+    var myGroups = [Groups]()
 
     // MARK: - Table view data source
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let usersAllGroups = Requests()
+        usersAllGroups.getGroups(for: UserSession.instance.id){ [weak self]
+            myGroups in
+            self?.myGroups = myGroups
+            self?.tableView.reloadData()
+                print(myGroups.count)
+            }
+    }
+    
+    
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        groups.count
+        myGroups.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath)
         as? AllGroupsCell
         else { return UITableViewCell() }
-        cell.groupImage.image = groups[indexPath.row].avatar
-        cell.groupLabel.text = groups[indexPath.row].title
+        cell.groupImage.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
+        cell.groupLabel.text = myGroups[indexPath.row].name
         return cell
     }
     
