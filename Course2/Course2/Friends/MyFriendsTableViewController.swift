@@ -41,6 +41,26 @@ class MyFriendsTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         (firstLetters, sortedFriends) = sort(myFriends)
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        urlComponents.path = "/method/friends.get"
+        urlComponents.queryItems=[
+            URLQueryItem.init(name: "user_id", value: "71613812"),
+            URLQueryItem(name: "access_token", value: UserSession.instance.token),
+            URLQueryItem(name: "v", value: "5.126"),
+            URLQueryItem(name: "fields", value: "city"),
+        ]
+        
+        let request = URLRequest(url: urlComponents.url!)
+        let task = session.dataTask (with : request )
+        { ( data , response , error ) in
+        let json = try? JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.allowFragments)
+        print(json ?? "false")
+        }
+        task.resume()
     }
     
     // MARK: - Table view data source
