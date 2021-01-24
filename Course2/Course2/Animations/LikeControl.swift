@@ -29,7 +29,7 @@ import UIKit
         self.setupView()
     }
     private func setupView() {
-       likeButton.imageView?.contentMode = .scaleAspectFill
+        likeButton.imageView?.contentMode = .scaleAspectFill
         likeButton.setTitleColor(.red, for: .normal)
         likeButton.tintColor = .red
         likeButton.setTitle("\(likeCount)", for: .normal)

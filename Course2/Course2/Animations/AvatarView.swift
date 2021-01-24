@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AvatarView: UIView {
+class AvatarView: UIImageView {
     @IBInspectable var shadowColor: UIColor = .lightGray
     @IBInspectable var shadowOffset: CGSize = CGSize(width: 0.0, height: 0.0)
     @IBInspectable var shadowOpacity: Float = 0.8
