@@ -141,11 +141,14 @@ extension MyFriendsTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profilePhoto"{
             let profilePC = segue.destination as! ProfileCollectionController
-            let indexpath = self.tableView.indexPathForSelectedRow
-            profilePC.id = UInt64(self.myFriends[indexpath!.row].id)
-            print("id for photos is")
-            print(profilePC.id)
-            
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let currentChar = self.firstLetters[indexPath!.section]
+            if let currentCharFriends = sortedFriends[currentChar] {
+                let friend = currentCharFriends[indexPath!.row]
+                profilePC.id = UInt64(friend.id)
+                print("id for photos is")
+                print(profilePC.id)
+            }
         }
         
     }

@@ -10,6 +10,6 @@ import SwiftyJSON
 struct Photos{
     var url: String
     init(_ json: JSON) {
-        self.url = json["sizes"]["url"].stringValue
+        self.url = json["url"].stringValue
     }
 }
