@@ -11,8 +11,6 @@ import SwiftyJSON
 
 class Requests {
     private let host = "https://api.vk.com"
-    
-    
     func getFriends(for id: UInt, completion: @escaping ([Friends])->Void){
         let path = "/method/friends.get"
         let parametrs : Parameters = [
@@ -29,7 +27,6 @@ class Requests {
                         switch response.result {
                         case .success(let data):
                             let json = JSON(data)
-                            //print(json)
                             let friendsJSONs = json["response"]["items"].arrayValue
                             let myFriends = friendsJSONs.compactMap { Friends($0) }
                             completion(myFriends)
@@ -39,26 +36,7 @@ class Requests {
         
     }
  }
-//        let configuration = URLSessionConfiguration.default
-//        let session = URLSession(configuration: configuration)
-//        var urlComponents = URLComponents()
-//        urlComponents.scheme = "https"
-//        urlComponents.host = "api.vk.com"
-//        urlComponents.path = "/method/friends.get"
-//        urlComponents.queryItems=[
-//            URLQueryItem.init(name: "user_id", value: UserSession.instance.token),
-//            URLQueryItem(name: "access_token", value: UserSession.instance.token),
-//            URLQueryItem(name: "v", value: "5.126"),
-//            URLQueryItem(name: "fields", value: "city"),
-//        ]
-//
-//        let request = URLRequest(url: urlComponents.url!)
-//        let task = session.dataTask (with : request )
-//        { ( data , response , error ) in
-//        let json = try? JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.allowFragments)
-//        print(json ?? "false")
-//        }
-//        task.resume()
+        
         
     
    func getGroups(for id: UInt, completion: @escaping ([Groups])->Void){
@@ -76,7 +54,6 @@ class Requests {
                 switch response.result {
                 case .success(let data):
                     let json = JSON(data)
-                    //print(json)
                     let friendsJSONs = json["response"]["items"].arrayValue
                     let myGroups = friendsJSONs.compactMap { Groups($0) }
                     completion(myGroups)
@@ -86,20 +63,28 @@ class Requests {
             }
    }
     
- func getPhotos(){
+ func getPhotos(for id: UInt64, completion: @escaping ([Photos])->Void){
         let path = "/method/photos.getAll"
         let parametrs : Parameters = [
             "owner_id" :     UserSession.instance.id,
             "access_token": UserSession.instance.token,
-            "v"       :     "5.126",
-            "fields"  :     "city"
+            "v"       :     "5.126"
         ]
         
         AF.request(host + path,
                    method: .get,
                    parameters: parametrs)
-           .responseJSON { json in
-               print(json)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let json = JSON(data)
+                    let photosJSONs = json["response"]["items"].arrayValue
+                    let usersPhotos = photosJSONs.compactMap { Photos($0) }
+                    completion(usersPhotos)
+                    print(usersPhotos.count)
+                case .failure(let error):
+                    print(error)
+                }
             }
     }
 }
