@@ -66,11 +66,12 @@ class Requests {
  func getPhotos(for id: UInt64, completion: @escaping ([Photos])->Void){
         let path = "/method/photos.getAll"
         let parametrs : Parameters = [
-            "owner_id" :     UserSession.instance.id,
+            "owner_id" :     id,
             "access_token": UserSession.instance.token,
             "v"       :     "5.126"
         ]
-        
+        print("loook")
+    print(id)
         AF.request(host + path,
                    method: .get,
                    parameters: parametrs)
@@ -79,9 +80,12 @@ class Requests {
                 case .success(let data):
                     let json = JSON(data)
                     let photosJSONs = json["response"]["items"].arrayValue
-                    let usersPhotos = photosJSONs.compactMap { Photos($0) }
-                    completion(usersPhotos)
-                    print(usersPhotos.count)
+                    for element in photosJSONs{
+                        let sizes = element["sizes"].arrayValue
+                        print(sizes)
+                        let usersPhotos = sizes.compactMap { Photos($0) }
+                        completion(usersPhotos)
+                    }
                 case .failure(let error):
                     print(error)
                 }

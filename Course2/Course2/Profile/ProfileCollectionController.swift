@@ -37,8 +37,7 @@ class ProfileCollectionController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
         as? ProfileCell
-
-        //cell?.image.kf.setImage(with: URL(string:usersPhotos[indexPath.row].url ))
+        cell?.image.kf.setImage(with: URL(string:usersPhotos[indexPath.row].url ))
         return cell!
     }
     override func viewDidLoad() {
@@ -49,7 +48,7 @@ class ProfileCollectionController: UICollectionViewController {
             usersPhotos in
             self?.usersPhotos = usersPhotos
             self?.collectionView.reloadData()
-            print(usersPhotos.count)
+            print("photos for\(self?.id)")
         }
         
     }
