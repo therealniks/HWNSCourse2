@@ -9,32 +9,34 @@ import UIKit
 import Kingfisher
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
 
-    var myFriends = [Friends]()
+    var myFriends = [Friends](){
+        didSet {
+            (firstLetters, sortedFriends) = sort(myFriends) // После получения друзей с сервера - сортируем
+        }
+    }
     var nFriends = [String]()
     var filtredFriend = [Friends]()
     var firstLetters = [Character]()
-    var sortedFriends = [Character : [Friends]]()
+    var sortedFriends = [Character : [Friends]](){
+        didSet {
+            tableView.reloadData()
+        }
+    }
     var filtredFriends = [Character : [Friends]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
     
-    
-    
-    
-    
-    
-    
+   
     private func sort(_ users: [Friends])->(characters: [Character], sortedUsers: [Character:[Friends]] ){
             var characters = [Character]()
             var sortedUsers = [Character : [Friends]]()
-        users.forEach { user in
+            users.forEach { user in
             guard let character = user.lastName.first else {return}
-            if var thisCharUsers = sortedUsers[character]{
-                thisCharUsers.append(user)
-                sortedUsers[character] = thisCharUsers
+            if sortedUsers.contains(where: {$0.key == character}) {
+                sortedUsers[character]?.append(user)
             } else {
-                sortedUsers[character] = [user]
                 characters.append(character)
+                sortedUsers[character] = [user]
             }
         }
         characters.sort()
@@ -44,7 +46,6 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        (firstLetters, sortedFriends) = sort(myFriends)
         let usersFriends = Requests()
             usersFriends.getFriends(for: UserSession.instance.id){ [weak self]
             myFriends in
@@ -65,14 +66,14 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
         if searching{
           return  filtredFriend.count
         }else{
-            return 1
+            return firstLetters.count
         }
     }
 
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 ////        // #warning Incomplete implementation, return the number of rows
-    // let charUsers = firstLetters[section]
-    return  myFriends.count//sortedFriends[charUsers]?.count ?? 1  //
+    let charUsers = firstLetters[section]
+    return  sortedFriends[charUsers]?.count ?? 1
 
    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,22 +81,16 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath)
                 as? FriendsCell
         else { return UITableViewCell() }
-       // let firstLetter = firstLetters[indexPath.section]
-      //  if let myFriends = sortedFriends[firstLetter]{
-            if searching{
-                cell.friendID.text = filtredFriend[indexPath.row].firstName// + " " + filtredFriend[indexPath.row].name
-                    // cell.friendAvatar.photoImage.image = filtredFriend[indexPath.row].avatar
-           }else{
-        cell.friendID.text = myFriends[indexPath.row].firstName + " " + myFriends[indexPath.row].lastName
-        cell.friendAvatar.photoImage.kf.setImage(with: URL(string: myFriends[indexPath.row].icon))
-                       }
-        //}
-        
+        let currentChar = firstLetters[indexPath.section]
+        if let currentCharFriends = sortedFriends[currentChar] {
+            let friend = currentCharFriends[indexPath.row]
+            cell.configure(with: friend)
+        }
         return cell
     }
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//            return 1 //String(firstLetters[section])
-//    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            String(firstLetters[section])
+    }
      override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         Array(firstLetters).map { String($0)}
     }
@@ -141,4 +136,19 @@ extension MyFriendsTableViewController {
         tableView.endEditing(true)
         tableView.reloadData()
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profilePhoto"{
+            let profilePC = segue.destination as! ProfileCollectionController
+            let indexpath = self.tableView.indexPathForSelectedRow
+            profilePC.id = UInt64(self.myFriends[indexpath!.row].id)
+            print("id for photos is")
+            print(profilePC.id)
+            
+        }
+        
+    }
+    
+    
 }

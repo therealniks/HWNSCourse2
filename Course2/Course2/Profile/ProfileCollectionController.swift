@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 private let reuseIdentifier = "Cell"
 
 class ProfileCollectionController: UICollectionViewController {
 
-
+    var usersPhotos = [Photos]()
+    var id : UInt64 = 0
     
     /*
     // MARK: - Navigation
@@ -23,21 +25,32 @@ class ProfileCollectionController: UICollectionViewController {
     }
     */
 
+    
+    
+    
+
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        5
+        usersPhotos.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
         as? ProfileCell
-        cell?.image.image = UIImage(named: "avatar")!
+
+        //cell?.image.kf.setImage(with: URL(string:usersPhotos[indexPath.row].url ))
         return cell!
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let usersPhotos = Requests()
-        usersPhotos.getPhotos()
+        let userPhotos = Requests()
+        userPhotos.getPhotos(for: id) {
+            [weak self]
+            usersPhotos in
+            self?.usersPhotos = usersPhotos
+            self?.collectionView.reloadData()
+            print(usersPhotos.count)
+        }
         
     }
     

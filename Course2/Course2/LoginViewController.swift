@@ -59,7 +59,7 @@ extension LoginViewController {
         UserSession.instance.id = UInt(Int(userID) ?? 0)
         UserSession.instance.token = token ?? ""
         print(token ?? "false")
-        print(userID ?? "false")
+        print(userID )
         print("success")
 
        performSegue(withIdentifier: "VKLogin", sender: nil)
