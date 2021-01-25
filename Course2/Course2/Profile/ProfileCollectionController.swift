@@ -34,6 +34,31 @@ class ProfileCollectionController: UICollectionViewController {
         cell?.image.image = UIImage(named: "avatar")!
         return cell!
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        urlComponents.path = "/method/photos.getAll"
+        urlComponents.queryItems=[
+            URLQueryItem.init(name: "owner_id", value: "71613812"),
+            URLQueryItem(name: "access_token", value: UserSession.instance.token),
+            URLQueryItem(name: "v", value: "5.126"),
+            URLQueryItem(name: "extended", value: "1"),
+        ]
+        let request = URLRequest(url: urlComponents.url!)
+        let task = session.dataTask (with : request )
+        {(data , response , error ) in
+        let json = try? JSONSerialization.jsonObject(with: data!,
+                        options:JSONSerialization.ReadingOptions.allowFragments)
+        print(json ?? "false")
+        }
+        task.resume()
+        
+    }
+    
     
     
 
