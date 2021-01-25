@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 private let reuseIdentifier = "Cell"
 
 class ProfileCollectionController: UICollectionViewController {
 
-
+    var usersPhotos = [Photos]()
+    var id : UInt64 = 0
     
     /*
     // MARK: - Navigation
@@ -23,39 +25,31 @@ class ProfileCollectionController: UICollectionViewController {
     }
     */
 
+    
+    
+    
+
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        5
+        usersPhotos.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
         as? ProfileCell
-        cell?.image.image = UIImage(named: "avatar")!
+        cell?.image.kf.setImage(with: URL(string:usersPhotos[indexPath.row].url ))
         return cell!
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration)
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/photos.getAll"
-        urlComponents.queryItems=[
-            URLQueryItem.init(name: "owner_id", value: "71613812"),
-            URLQueryItem(name: "access_token", value: UserSession.instance.token),
-            URLQueryItem(name: "v", value: "5.126"),
-            URLQueryItem(name: "extended", value: "1"),
-        ]
-        let request = URLRequest(url: urlComponents.url!)
-        let task = session.dataTask (with : request )
-        {(data , response , error ) in
-        let json = try? JSONSerialization.jsonObject(with: data!,
-                        options:JSONSerialization.ReadingOptions.allowFragments)
-        print(json ?? "false")
+        let userPhotos = Requests()
+        userPhotos.getPhotos(for: id) {
+            [weak self]
+            usersPhotos in
+            self?.usersPhotos = usersPhotos
+            self?.collectionView.reloadData()
+            print("photos for\(self?.id)")
         }
-        task.resume()
         
     }
     

@@ -9,7 +9,7 @@ import UIKit
 
 class MyGroupsViewController: UITableViewController {
 
-var myGroups = [Group]()
+var myGroups = [Groups]()
 
     // MARK: - Table view data source
     @IBAction func addGroup(segue: UIStoryboardSegue) {
@@ -17,9 +17,9 @@ var myGroups = [Group]()
             segue.identifier == "addGroup",
             let controller = segue.source as? AllGroupsTableViewController,
             let indexPath = controller.tableView.indexPathForSelectedRow,
-            !myGroups.contains(where: {$0.id == controller.groups[indexPath.row].id})
+            !myGroups.contains(where: {$0.name == controller.myGroups[indexPath.row].name})
         else { return }
-        myGroups.append(controller.groups[indexPath.row])
+        myGroups.append(controller.myGroups[indexPath.row])
         tableView.reloadData()
     }
 
@@ -40,32 +40,15 @@ var myGroups = [Group]()
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsCell", for: indexPath)
                 as? MyGroupsCell
         else { return UITableViewCell() }
-        cell.MyGroupAvatar.image = myGroups[indexPath.row].avatar
-        cell.MyGroupTitle.text = myGroups[indexPath.row].title
+        cell.MyGroupAvatar.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
+        cell.MyGroupTitle.text = myGroups[indexPath.row].name
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration)
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/groups.get"
-        urlComponents.queryItems=[
-            URLQueryItem.init(name: "user_id", value: "71613812"),
-            URLQueryItem(name: "access_token", value: UserSession.instance.token),
-            URLQueryItem(name: "v", value: "5.126"),
-            URLQueryItem(name: "extended", value: "1"),
-        ]
-        let request = URLRequest(url: urlComponents.url!)
-        let task = session.dataTask (with : request )
-        {(data , response , error ) in
-        let json = try? JSONSerialization.jsonObject(with: data!,
-                        options:JSONSerialization.ReadingOptions.allowFragments)
-        print(json ?? "false")
-        }
-        task.resume()}
+        //let userGroups = Requests()
+       // userGroups.getGroups()
 
+}
 }
