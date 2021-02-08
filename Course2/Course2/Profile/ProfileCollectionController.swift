@@ -7,15 +7,13 @@
 
 import UIKit
 import Kingfisher
-import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
 class ProfileCollectionController: UICollectionViewController {
 
     var usersPhotos = [Photos]()
-    var id : Int = 0
-    var likeControl = LikeControl()
+    var id : UInt64 = 0
     
     /*
     // MARK: - Navigation
@@ -40,40 +38,20 @@ class ProfileCollectionController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
         as? ProfileCell
         cell?.image.kf.setImage(with: URL(string:usersPhotos[indexPath.row].url ))
-        likeControl.likeCount = usersPhotos[indexPath.row].likes
-        print("opa \( usersPhotos[indexPath.row].likes)")
         return cell!
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         let userPhotos = Requests()
         userPhotos.getPhotos(for: id) {
-            [weak self] in
-            self?.loadPhotosData()
+            [weak self]
+            usersPhotos in
+            self?.usersPhotos = usersPhotos
             self?.collectionView.reloadData()
-            
+            print("photos for\(self?.id)")
         }
         
     }
-    
-    
-}
-    
-    extension ProfileCollectionController{
-        private func loadPhotosData(){
-            do {
-                let realm = try Realm()
-                let photos = realm.objects(Photos.self)
-                self.usersPhotos = Array(photos)
-                }catch{
-                    print ( error.localizedDescription)
-                }
-        }
-        
-
-        
-        
-    
     
     
     

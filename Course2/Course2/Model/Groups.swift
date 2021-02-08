@@ -5,21 +5,15 @@
 //  Created by N!kS on 21.01.2021.
 //
 
-import RealmSwift
+import Foundation
 import SwiftyJSON
 
 
-
-class Groups : Object{
-    @objc dynamic var name: String = ""
-    @objc dynamic var icon: String = ""
-    convenience init(_ json: JSON) {
-        self.init()
+struct Groups {
+    let name: String
+    let icon: String
+    init(_ json: JSON) {
         self.name = json["name"].stringValue
         self.icon = json["photo_100"].stringValue    
-    }
-    
-    override static func primaryKey()-> String? {
-        return "name"
-    }
+}
 }

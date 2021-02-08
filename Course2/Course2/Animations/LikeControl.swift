@@ -7,10 +7,7 @@
 
 import UIKit
 @IBDesignable class LikeControl: UIControl {
-    
-    
-    
-    var likeCount: Int = 0{
+    var likeCount: UInt = 0{
         didSet{
             likeButton.setTitle("\(likeCount)", for: .normal)
         }

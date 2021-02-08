@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
 
@@ -17,10 +16,11 @@ class AllGroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let usersAllGroups = Requests()
-        usersAllGroups.getGroups(for: UserSession.instance.id){ [weak self] in
-            self?.loadGroupsData(for: UserSession.instance.id)
+        usersAllGroups.getGroups(for: UserSession.instance.id){ [weak self]
+            myGroups in
+            self?.myGroups = myGroups
             self?.tableView.reloadData()
-
+                print(myGroups.count)
             }
     }
     
@@ -44,16 +44,4 @@ class AllGroupsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-
-    private func loadGroupsData(for id: Int){
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Groups.self)
-            self.myGroups = Array(groups)
-            }catch{
-                print ( error.localizedDescription)
-            }
-        
-        }
-    }
+}

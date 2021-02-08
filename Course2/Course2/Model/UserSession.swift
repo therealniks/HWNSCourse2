@@ -11,6 +11,6 @@ class UserSession{
     static let instance = UserSession()
     private init(){}
     var token = ""
-    var id: Int = 0
+    var id: UInt = 0
     
 }

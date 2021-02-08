@@ -7,10 +7,8 @@
 
 import UIKit
 import Kingfisher
-import RealmSwift
-
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
-    let request = Requests()
+
     var myFriends = [Friends](){
         didSet {
             (firstLetters, sortedFriends) = sort(myFriends) // После получения друзей с сервера - сортируем
@@ -24,7 +22,6 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
         }
     }
-    //var token = NotificationToken?()
     var filtredFriends = [Character : [Friends]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
@@ -49,10 +46,12 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-            request.getFriends(for: UserSession.instance.id){ [weak self] in
-                self?.loadFriendsData(for: UserSession.instance.id)
-                self?.tableView.reloadData()
-                
+        let usersFriends = Requests()
+            usersFriends.getFriends(for: UserSession.instance.id){ [weak self]
+            myFriends in
+            self?.myFriends = myFriends
+            self?.tableView.reloadData()
+                print(myFriends.count)
             }
         
         
@@ -146,7 +145,7 @@ extension MyFriendsTableViewController {
             let currentChar = self.firstLetters[indexPath!.section]
             if let currentCharFriends = sortedFriends[currentChar] {
                 let friend = currentCharFriends[indexPath!.row]
-                profilePC.id = (friend.id)
+                profilePC.id = UInt64(friend.id)
                 print("id for photos is")
                 print(profilePC.id)
             }
@@ -154,14 +153,5 @@ extension MyFriendsTableViewController {
         
     }
     
-    func loadFriendsData(for id: Int){
-        do {
-            let realm = try Realm()
-            let friend = realm.objects(Friends.self)
-            self.myFriends = Array(friend)
-            }catch{
-                print ( error)
-            }
-        
-    }   
+    
 }

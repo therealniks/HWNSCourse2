@@ -5,26 +5,18 @@
 //  Created by N!kS on 20.01.2021.
 //
 
+import Foundation
 import SwiftyJSON
-import RealmSwift
 
-class Friends: Object {
-    @objc dynamic var firstName: String = ""
-    @objc dynamic var lastName : String = ""
-    @objc dynamic var id : Int = 0
-    @objc dynamic var icon: String = ""
-    convenience init(_ json: JSON) {
-        self.init()
-        self.id = json["id"].intValue
+struct Friends {
+    let firstName: String
+    var lastName : String
+    let id : UInt64
+    let icon: String
+    init(_ json: JSON) {
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
+        self.id = json["id"].uInt64Value
         self.icon = json["photo_100"].stringValue
-    }
-    let photos = List<Photos>()
-    
-    override static func primaryKey()-> String? {
-        return "id"
-    }
-    
-    
+    }    
 }

@@ -132,7 +132,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-5G-Mu7" customClass="FriendAvatarImageView" customModule="Course2" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="5" width="74" height="74.333333333333329"/>
+                                            <rect key="frame" x="20" y="5" width="74" height="74"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="YYr-5G-Mu7" secondAttribute="height" id="RPd-3R-fHR"/>
                                                 <constraint firstAttribute="height" constant="74" id="cHk-Zz-5Yx"/>
@@ -140,7 +140,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7R-oO-eMO">
-                                            <rect key="frame" x="134" y="28.666666666666671" width="52" height="27"/>
+                                            <rect key="frame" x="134" y="28.666666666666671" width="53" height="27"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -150,6 +150,7 @@
                                         <constraint firstItem="h7R-oO-eMO" firstAttribute="leading" secondItem="YYr-5G-Mu7" secondAttribute="trailing" constant="40" id="SL1-Lz-4aN"/>
                                         <constraint firstItem="YYr-5G-Mu7" firstAttribute="centerY" secondItem="Bx0-Ul-pZq" secondAttribute="centerY" id="TBD-LS-6Lc"/>
                                         <constraint firstItem="h7R-oO-eMO" firstAttribute="centerY" secondItem="Bx0-Ul-pZq" secondAttribute="centerY" id="bjz-Su-zNa"/>
+                                        <constraint firstAttribute="trailing" secondItem="h7R-oO-eMO" secondAttribute="trailing" constant="241" id="cTF-C1-nRW"/>
                                         <constraint firstItem="YYr-5G-Mu7" firstAttribute="leading" secondItem="Bx0-Ul-pZq" secondAttribute="leading" constant="20" symbolic="YES" id="hLr-P2-Jhw"/>
                                         <constraint firstItem="YYr-5G-Mu7" firstAttribute="centerY" secondItem="h7R-oO-eMO" secondAttribute="centerY" id="mNL-cR-iKp"/>
                                         <constraint firstItem="YYr-5G-Mu7" firstAttribute="top" secondItem="Bx0-Ul-pZq" secondAttribute="topMargin" constant="-6" id="maV-q3-K1P"/>
@@ -303,7 +304,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eh7-pi-rpd" customClass="FriendAvatarImageView" customModule="Course2" customModuleProvider="target">
-                                            <rect key="frame" x="14" y="12.666666666666664" width="75" height="75"/>
+                                            <rect key="frame" x="14" y="12.666666666666666" width="75" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="2B4-UH-emI"/>
                                                 <constraint firstAttribute="height" constant="75" id="rfX-Ki-ScH"/>
@@ -319,6 +320,7 @@
                                     <constraints>
                                         <constraint firstItem="I0K-Lc-1br" firstAttribute="centerY" secondItem="WWx-9e-ATo" secondAttribute="centerY" id="12l-oC-OM6"/>
                                         <constraint firstItem="I0K-Lc-1br" firstAttribute="leading" secondItem="Eh7-pi-rpd" secondAttribute="trailing" constant="10" id="Ru1-OJ-vuS"/>
+                                        <constraint firstAttribute="trailing" secondItem="I0K-Lc-1br" secondAttribute="trailing" constant="277" id="f4r-rP-q9R"/>
                                         <constraint firstItem="Eh7-pi-rpd" firstAttribute="leading" secondItem="WWx-9e-ATo" secondAttribute="leading" constant="14" id="t9Q-Xf-rfP"/>
                                         <constraint firstItem="Eh7-pi-rpd" firstAttribute="centerY" secondItem="WWx-9e-ATo" secondAttribute="centerY" id="wdL-ss-sjI"/>
                                     </constraints>
@@ -346,7 +348,7 @@
         <scene sceneID="NTh-eY-fRx">
             <objects>
                 <tableViewController id="Zf2-2B-Fra" userLabel="My Friends" customClass="MyFriendsTableViewController" customModule="Course2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="AL5-RM-1W2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="AL5-RM-1W2">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -374,8 +376,8 @@
                                             <rect key="frame" x="20" y="5" width="75" height="75"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="75" id="XDh-Xd-tEk"/>
-                                                <constraint firstAttribute="width" constant="75" id="eWq-wG-Azr"/>
+                                                <constraint firstAttribute="width" constant="75" id="HWD-cV-EbH"/>
+                                                <constraint firstAttribute="height" constant="75" id="vkg-T8-7A9"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -400,11 +402,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dwa-hR-b5v" firstAttribute="leading" secondItem="t4R-1g-1Kp" secondAttribute="leading" constant="20" symbolic="YES" id="Pb4-y6-1Zb"/>
-                                        <constraint firstItem="dwa-hR-b5v" firstAttribute="top" secondItem="t4R-1g-1Kp" secondAttribute="top" constant="5" id="XaA-KW-muJ"/>
-                                        <constraint firstItem="6UG-yg-Nb4" firstAttribute="centerY" secondItem="t4R-1g-1Kp" secondAttribute="centerY" id="a3m-V3-Kke"/>
-                                        <constraint firstItem="6UG-yg-Nb4" firstAttribute="leading" secondItem="dwa-hR-b5v" secondAttribute="trailing" constant="32" id="kDV-e1-rDP"/>
-                                        <constraint firstItem="6UG-yg-Nb4" firstAttribute="top" secondItem="t4R-1g-1Kp" secondAttribute="top" constant="29.333333333333336" id="vwa-Xq-B6k"/>
+                                        <constraint firstItem="6UG-yg-Nb4" firstAttribute="leading" secondItem="dwa-hR-b5v" secondAttribute="trailing" constant="32" id="6Qe-Yr-wej"/>
+                                        <constraint firstItem="dwa-hR-b5v" firstAttribute="leading" secondItem="t4R-1g-1Kp" secondAttribute="leading" constant="20" symbolic="YES" id="9Kz-CB-8MX"/>
+                                        <constraint firstItem="6UG-yg-Nb4" firstAttribute="centerY" secondItem="t4R-1g-1Kp" secondAttribute="centerY" id="MmR-9C-UK6"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6UG-yg-Nb4" secondAttribute="trailing" constant="220" id="Xp0-ym-M8C"/>
+                                        <constraint firstItem="dwa-hR-b5v" firstAttribute="centerY" secondItem="t4R-1g-1Kp" secondAttribute="centerY" id="bKr-qs-m1c"/>
+                                        <constraint firstItem="dwa-hR-b5v" firstAttribute="top" secondItem="t4R-1g-1Kp" secondAttribute="top" constant="5" id="tcS-1C-Xz2"/>
+                                        <constraint firstAttribute="bottom" secondItem="dwa-hR-b5v" secondAttribute="bottom" constant="5" id="wmD-En-3xn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
