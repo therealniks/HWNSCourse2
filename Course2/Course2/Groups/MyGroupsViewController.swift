@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MyGroupsViewController: UITableViewController {
 
@@ -47,8 +48,25 @@ var myGroups = [Groups]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let userGroups = Requests()
-       // userGroups.getGroups()
+        let userGroups = Requests()
+            userGroups.getGroups(for: UserSession.instance.id){ [weak self] in
+            self?.loadGroupsData(for: UserSession.instance.id)
+            self?.tableView.reloadData()
+        }
 
 }
+    
+    private func loadGroupsData(for id: Int){
+        do {
+            let realm = try Realm()
+            let groups = realm.objects(Groups.self)
+            self.myGroups = Array(groups)
+            }catch{
+                print ( error.localizedDescription)
+            }
+        
+    }
+    
+    
+    
 }

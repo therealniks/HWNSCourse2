@@ -56,7 +56,7 @@ extension LoginViewController {
               
         let token = params["access_token"]
         let userID = params["user_id"] ?? ""
-        UserSession.instance.id = UInt(Int(userID) ?? 0)
+        UserSession.instance.id = (Int(userID)) ?? 0
         UserSession.instance.token = token ?? ""
         print(token ?? "false")
         print(userID )
