@@ -10,6 +10,7 @@ import UIKit
 class ProfileCell: UICollectionViewCell {
 
     @IBOutlet weak var image: ScaleImage!
+    @IBOutlet weak var likeControl: LikeControl!
     override func prepareForReuse() {
         super.prepareForReuse()
         image.image = nil

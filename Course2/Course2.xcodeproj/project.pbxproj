@@ -27,6 +27,7 @@
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
 		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
 		80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2F3BC25B5F53200B387AD /* Requests.swift */; };
+		80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E056A625D2A39500945C9E /* RealmProvider.swift */; };
 		80EC8F3D25AEF541002D018E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */; };
 		80EC8F4025AEF5B6002D018E /* InteractiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F3F25AEF5B6002D018E /* InteractiveManager.swift */; };
 		80EC8F4425AEF610002D018E /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F4325AEF610002D018E /* PopAnimator.swift */; };
@@ -66,6 +67,7 @@
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		80C2F3BC25B5F53200B387AD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		80E056A625D2A39500945C9E /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		80EC8F3F25AEF5B6002D018E /* InteractiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveManager.swift; sourceTree = "<group>"; };
 		80EC8F4325AEF610002D018E /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				80C2F3BC25B5F53200B387AD /* Requests.swift */,
+				80E056A625D2A39500945C9E /* RealmProvider.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */,
 				80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */,
 				802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */,
+				80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */,
 				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,
 				8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */,

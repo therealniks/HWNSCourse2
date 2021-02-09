@@ -5,15 +5,19 @@
 //  Created by N!kS on 23.01.2021.
 //
 
-import Foundation
-import SwiftyJSON
 import RealmSwift
+import SwiftyJSON
 class Photos: Object {
-   @objc dynamic var url: String = ""
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var ownerID: Int = 0
+    @objc dynamic var url: String = ""
+    @objc dynamic var likes: Int = 0
     var someURL: URL?
-    var likes : Int = 0
 
-    convenience init(_ json: JSON) {
+    
+    let owners = LinkingObjects(fromType : Friends.self , property : "photos")
+    
+    convenience init(_ json: JSON, _ ownerID: Int) {
         self.init()
         let sizes = json["sizes"].arrayValue
         let biggestSize = sizes.reduce(sizes[0]) { currentTopSize, newSize -> JSON in
@@ -22,17 +26,15 @@ class Photos: Object {
             return currentPoints >= newSizePoints ? currentTopSize : newSize
         }
         print(biggestSize)
-
+        self.ownerID = ownerID
         self.url = biggestSize["url"].stringValue
         self.likes = json["likes"]["count"].intValue
         print("likes %- \(likes)")
         self.someURL = URL(string: biggestSize["url"].stringValue)
-        
-        let owners = LinkingObjects(fromType : Friends.self , property : "photos")
+    }
     
-//    override static func primaryKey()-> String? {
-//        return "url"
-//        }
+    override static func primaryKey()-> String? {
+        return "id"
     }
 }
 
