@@ -37,11 +37,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yE4-cW-7Ym" customClass="LikeControl" customModule="Course2" customModuleProvider="target">
-                                            <rect key="frame" x="106" y="341" width="135" height="46"/>
+                                            <rect key="frame" x="106" y="291" width="135" height="96"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjX-fb-0PL" customClass="ScaleImage" customModule="Course2" customModuleProvider="target">
-                                            <rect key="frame" x="48" y="40" width="251" height="250"/>
+                                            <rect key="frame" x="48" y="40" width="251" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="251" id="D7e-hl-4y1" userLabel="width = 100"/>
                                                 <constraint firstAttribute="height" constant="200" id="gzk-Ic-Mj3" userLabel="height = 100"/>
@@ -57,7 +57,6 @@
                                         <constraint firstItem="yE4-cW-7Ym" firstAttribute="centerX" secondItem="ano-Ib-Uom" secondAttribute="centerX" id="WSV-VN-Z3h"/>
                                         <constraint firstItem="JjX-fb-0PL" firstAttribute="leading" secondItem="ano-Ib-Uom" secondAttribute="leading" constant="48" id="hdE-Gw-4iW"/>
                                         <constraint firstAttribute="trailing" secondItem="JjX-fb-0PL" secondAttribute="trailing" constant="48" id="n9o-Xi-NGq"/>
-                                        <constraint firstAttribute="bottom" secondItem="JjX-fb-0PL" secondAttribute="bottom" constant="137" id="sKo-7y-GQA"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="347" height="427"/>
@@ -394,7 +393,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FriendID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UG-yg-Nb4">
-                                            <rect key="frame" x="126" y="29" width="252" height="26"/>
+                                            <rect key="frame" x="126" y="29.333333333333336" width="252" height="26.333333333333336"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

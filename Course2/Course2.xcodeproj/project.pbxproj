@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80127F0325D3C61E008A2FEB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80127F0225D3C61E008A2FEB /* GoogleService-Info.plist */; };
 		801832EB25BC37B000488E3F /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801832EA25BC37B000488E3F /* Photos.swift */; };
 		802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A1E57259BB2D80090FCF5 /* ScaleImage.swift */; };
 		802EE8F825AF59270048D8CD /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE8F725AF59270048D8CD /* UserSession.swift */; };
@@ -16,6 +17,7 @@
 		8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */; };
 		8066B5BF25814CA600F294B7 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */; };
 		8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */; };
+		808430DE25D478A2005A710D /* FireBaseMyGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808430DD25D478A2005A710D /* FireBaseMyGroups.swift */; };
 		80869406258FA639009F13ED /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80869405258FA639009F13ED /* Feed.swift */; };
 		8090146625B8A13C00D524BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090146525B8A13C00D524BD /* Friends.swift */; };
 		8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328D2577F6960096D5D4 /* AppDelegate.swift */; };
@@ -45,6 +47,7 @@
 /* Begin PBXFileReference section */
 		65FDD6969E6501C6D2804BA9 /* Pods_Course2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Course2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F30404D559632CD92931C00 /* Pods-Course2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Course2.debug.xcconfig"; path = "Target Support Files/Pods-Course2/Pods-Course2.debug.xcconfig"; sourceTree = "<group>"; };
+		80127F0225D3C61E008A2FEB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		801832EA25BC37B000488E3F /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		802A1E57259BB2D80090FCF5 /* ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale\U0010Image.swift"; sourceTree = "<group>"; };
 		802EE8F725AF59270048D8CD /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		8066B5BA2581495E00F294B7 /* AllGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsCell.swift; sourceTree = "<group>"; };
 		8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
+		808430DD25D478A2005A710D /* FireBaseMyGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseMyGroups.swift; sourceTree = "<group>"; };
 		80869405258FA639009F13ED /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		8090146525B8A13C00D524BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		8097328A2577F6950096D5D4 /* Course2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Course2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,7 @@
 				8090146525B8A13C00D524BD /* Friends.swift */,
 				80414E2825B9E393007E83EF /* Groups.swift */,
 				801832EA25BC37B000488E3F /* Photos.swift */,
+				808430DD25D478A2005A710D /* FireBaseMyGroups.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,21 +183,22 @@
 		8097328C2577F6950096D5D4 /* Course2 */ = {
 			isa = PBXGroup;
 			children = (
+				8066374925891C3000A75A8D /* Animations */,
+				80F1CA28258F94FE00F94577 /* Feed */,
+				80F50B312581281A005D5261 /* Friends */,
+				8066B5AC2581470000F294B7 /* Groups */,
+				8010A41A25B60B040038E467 /* Service */,
+				80AF35DB258E5642007CB04E /* Profile */,
+				8066B5B12581477500F294B7 /* Model */,
 				8097328D2577F6960096D5D4 /* AppDelegate.swift */,
 				809732A22577F75E0096D5D4 /* LoginViewController.swift */,
 				8097328F2577F6960096D5D4 /* SceneDelegate.swift */,
 				809732912577F6960096D5D4 /* ViewController.swift */,
 				809732962577F6960096D5D4 /* Assets.xcassets */,
 				8097329B2577F6960096D5D4 /* Info.plist */,
-				8066374925891C3000A75A8D /* Animations */,
-				80F1CA28258F94FE00F94577 /* Feed */,
-				80F50B312581281A005D5261 /* Friends */,
-				8066B5AC2581470000F294B7 /* Groups */,
 				809732982577F6960096D5D4 /* LaunchScreen.storyboard */,
 				809732932577F6960096D5D4 /* Main.storyboard */,
-				8066B5B12581477500F294B7 /* Model */,
-				80AF35DB258E5642007CB04E /* Profile */,
-				8010A41A25B60B040038E467 /* Service */,
+				80127F0225D3C61E008A2FEB /* GoogleService-Info.plist */,
 			);
 			path = Course2;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */,
+				80127F0325D3C61E008A2FEB /* GoogleService-Info.plist in Resources */,
 				809732972577F6960096D5D4 /* Assets.xcassets in Resources */,
 				809732952577F6960096D5D4 /* Main.storyboard in Resources */,
 			);
@@ -353,6 +360,7 @@
 				809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */,
 				8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */,
 				80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */,
+				808430DE25D478A2005A710D /* FireBaseMyGroups.swift in Sources */,
 				802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */,
 				80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */,
 				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,

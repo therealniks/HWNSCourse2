@@ -29,7 +29,6 @@ class Photos: Object {
         self.ownerID = ownerID
         self.url = biggestSize["url"].stringValue
         self.likes = json["likes"]["count"].intValue
-        print("likes %- \(likes)")
         self.someURL = URL(string: biggestSize["url"].stringValue)
     }
     

@@ -7,20 +7,26 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class MyGroupsViewController: UITableViewController {
 
-var myGroups = [Groups]()
-
+private var myGroups = [FireBaseMyGroups]()
+    private let ref = Database.database().reference(withPath: "myGroups")
     // MARK: - Table view data source
+    
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         guard
             segue.identifier == "addGroup",
             let controller = segue.source as? AllGroupsTableViewController,
-            let indexPath = controller.tableView.indexPathForSelectedRow,
-            !myGroups.contains(where: {$0.name == controller.myGroups[indexPath.row].name})
-        else { return }
-        myGroups.append(controller.myGroups[indexPath.row])
+            let indexPath = controller.tableView.indexPathForSelectedRow
+        else {return}
+        
+            let groupName = controller.allGroups[indexPath.row].name
+            let groupIcon = controller.allGroups[indexPath.row].icon
+            let group = FireBaseMyGroups(name:groupName, iconURL: groupIcon)
+            let groupRef = self.ref.child(controller.allGroups[indexPath.row].name.lowercased())
+            groupRef.setValue(group.toAnyObject())
         tableView.reloadData()
     }
 
@@ -31,8 +37,8 @@ var myGroups = [Groups]()
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            myGroups.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            let group = myGroups[indexPath.row]
+            group.ref?.removeValue()
         }
     }
     
@@ -41,32 +47,27 @@ var myGroups = [Groups]()
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsCell", for: indexPath)
                 as? MyGroupsCell
         else { return UITableViewCell() }
-        cell.MyGroupAvatar.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
-        cell.MyGroupTitle.text = myGroups[indexPath.row].name
+        let group = myGroups[indexPath.row]
+        cell.MyGroupAvatar.kf.setImage(with: URL(string: group.iconURL))
+        cell.MyGroupTitle.text = group.name
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userGroups = Requests()
-            userGroups.getGroups(for: UserSession.instance.id){ [weak self] in
-            self?.loadGroupsData(for: UserSession.instance.id)
-            self?.tableView.reloadData()
+        ref.observe(.value, with: {snapshot in
+            var groups: [FireBaseMyGroups] = []
+            for child in snapshot.children{
+                if let snapshot = child as? DataSnapshot,
+                   let group = FireBaseMyGroups(snapshot: snapshot){
+                    groups.append(group)
+                }
+            }
+            self.myGroups = groups
+            self.tableView.reloadData()
+        })
         }
 
 }
     
-    private func loadGroupsData(for id: Int){
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Groups.self)
-            self.myGroups = Array(groups)
-            }catch{
-                print ( error.localizedDescription)
-            }
-        
-    }
-    
-    
-    
-}
+

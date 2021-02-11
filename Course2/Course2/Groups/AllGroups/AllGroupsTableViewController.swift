@@ -10,7 +10,7 @@ import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
 
-    var myGroups = [Groups]()
+    var allGroups = [Groups]()
 
     // MARK: - Table view data source
    
@@ -28,15 +28,15 @@ class AllGroupsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myGroups.count
+        allGroups.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath)
         as? AllGroupsCell
         else { return UITableViewCell() }
-        cell.groupImage.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
-        cell.groupLabel.text = myGroups[indexPath.row].name
+        cell.groupImage.kf.setImage(with: URL(string: allGroups[indexPath.row].icon))
+        cell.groupLabel.text = allGroups[indexPath.row].name
         return cell
     }
     
@@ -50,7 +50,7 @@ class AllGroupsTableViewController: UITableViewController {
         do {
             let realm = try Realm()
             let groups = realm.objects(Groups.self)
-            self.myGroups = Array(groups)
+            self.allGroups = Array(groups)
             }catch{
                 print ( error.localizedDescription)
             }
