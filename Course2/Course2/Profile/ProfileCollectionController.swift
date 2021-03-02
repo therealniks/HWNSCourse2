@@ -33,8 +33,7 @@ class ProfileCollectionController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userPhotos = Requests()
-        userPhotos.getPhotos(for: id)
+        getPhotos(for: id)
         maketUserPhotos()
             
     }

@@ -8,8 +8,12 @@
 import UIKit
 class FeedCell: UITableViewCell {
   
+
+    @IBOutlet weak var feedAuthor: UILabel!
+    @IBOutlet weak var feedAuthorImage : UIImageView!
+    @IBOutlet weak var feedAuthorTime : UILabel!
     @IBOutlet weak var feedImage: UIImageView!
-    @IBOutlet weak var feedText: UILabel!
+    @IBOutlet weak var feedText : UILabel!
     @IBOutlet weak var feedLike: UIImageView!
     @IBOutlet weak var feedShare: UIImageView!
     @IBOutlet weak var feedComment: UIImageView!

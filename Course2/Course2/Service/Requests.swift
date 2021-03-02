@@ -10,9 +10,8 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 
-class Requests {
+    let realm = try! Realm()
     private let host = "https://api.vk.com"
-    
     func getFriends(for id: Int, completion: @escaping ()->Void){
         let path = "/method/friends.get"
         let parametrs : Parameters = [
@@ -93,4 +92,4 @@ class Requests {
     }
     
     
-}
+

@@ -9,11 +9,11 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
 
-    let news = [Feed(feedText: "1", feedCommentCount: 15, feedShareCount: 1, feedLikeCount: 15, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "2", feedCommentCount: 100, feedShareCount: 2, feedLikeCount: 18, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "3", feedCommentCount: 90, feedShareCount: 3, feedLikeCount: 19, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "4", feedCommentCount: 14, feedShareCount: 4, feedLikeCount: 6, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "5", feedCommentCount: 678, feedShareCount: 5, feedLikeCount: 15, feedLogo: UIImage(named: "avatar")!)]
+    let news = [Feed(feedText: "SomeNewsText", feedCommentCount: 15, feedShareCount: 1, feedLikeCount: 15, feedLogo: UIImage(named: "avatar")!),
+                Feed(feedText: "SomeNewsText", feedCommentCount: 100, feedShareCount: 2, feedLikeCount: 18, feedLogo: UIImage(named: "avatar")!),
+                Feed(feedText: "SomeNewsText", feedCommentCount: 90, feedShareCount: 3, feedLikeCount: 19, feedLogo: UIImage(named: "avatar")!),
+                Feed(feedText: "SomeNewsText", feedCommentCount: 14, feedShareCount: 4, feedLikeCount: 6, feedLogo: UIImage(named: "avatar")!),
+                Feed(feedText: "SomeNewsText", feedCommentCount: 678, feedShareCount: 5, feedLikeCount: 15, feedLogo: UIImage(named: "avatar")!)]
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,11 @@ class FeedTableViewController: UITableViewController {
         cell.feedCommentCount.text = String(news[indexPath.row].feedCommentCount)
         cell.feedShareCount.text =  String(news[indexPath.row].feedCommentCount)
         cell.feedLikeCount.text = String(news[indexPath.row].feedCommentCount)
-        cell.feedText.text = String(news[indexPath.row].feedCommentCount)
+        cell.feedText.text = news[indexPath.row].feedText
         cell.feedImage.image = news[indexPath.row].feedLogo
+        cell.feedAuthorImage.image = news[indexPath.row].feedAuthorImage
+        cell.feedAuthor.text = news[indexPath.row].feedAuthor
+        cell.feedAuthorTime.text = news[indexPath.row].feedAuthorTime
         return cell
     }
     

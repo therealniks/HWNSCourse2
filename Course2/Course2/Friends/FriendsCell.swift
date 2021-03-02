@@ -19,9 +19,5 @@ class FriendsCell: UITableViewCell {
         friendAvatar.image = nil
     }
     
-    func configure(with friend: Friends) {
-        self.friendID.text = "\(friend.firstName) \(friend.lastName)"
-        guard let url = URL(string: friend.icon) else { return }
-        self.friendAvatar.photoImage.kf.setImage(with: url)        
-    }
+
 }

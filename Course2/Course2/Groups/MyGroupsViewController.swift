@@ -18,9 +18,9 @@ var myGroups = [Groups]()
             segue.identifier == "addGroup",
             let controller = segue.source as? AllGroupsTableViewController,
             let indexPath = controller.tableView.indexPathForSelectedRow,
-            !myGroups.contains(where: {$0.name == controller.myGroups[indexPath.row].name})
+            !myGroups.contains(where: {$0.name == controller.myAllGroups[indexPath.row].name})
         else { return }
-        myGroups.append(controller.myGroups[indexPath.row])
+        myGroups.append(controller.myAllGroups[indexPath.row])
         tableView.reloadData()
     }
 
@@ -41,15 +41,14 @@ var myGroups = [Groups]()
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsCell", for: indexPath)
                 as? MyGroupsCell
         else { return UITableViewCell() }
-        cell.MyGroupAvatar.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
-        cell.MyGroupTitle.text = myGroups[indexPath.row].name
+        cell.myGroupAvatar.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
+        cell.myGroupTitle.text = myGroups[indexPath.row].name
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userGroups = Requests()
-            userGroups.getGroups(for: UserSession.instance.id){ [weak self] in
+           getGroups(for: UserSession.instance.id){ [weak self] in
             self?.loadGroupsData(for: UserSession.instance.id)
             self?.tableView.reloadData()
         }

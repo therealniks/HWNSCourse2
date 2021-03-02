@@ -9,6 +9,7 @@
 import RealmSwift
 
 class RealmProvider {
+
     static let deleteIfMigration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
     
     static func save <T: Object>(items: [T],

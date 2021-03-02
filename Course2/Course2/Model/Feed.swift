@@ -8,6 +8,9 @@
 import UIKit
 class Feed{
     var feedText: String
+    var feedAuthorImage : UIImage
+    var feedAuthor : String
+    var feedAuthorTime: String
     var feedCommentCount: UInt
     var feedShareCount :UInt
     var feedLikeCount: UInt
@@ -19,5 +22,8 @@ class Feed{
         self.feedShareCount = feedShareCount
         self.feedLikeCount = feedLikeCount
         self.feedLogo = UIImage(named: "avatar")!
+        self.feedAuthorImage = UIImage(named: "avatar")!
+        self.feedAuthor = "VkNews"
+        self.feedAuthorTime = "2 марта 23:14"
     }
 }
