@@ -6,24 +6,25 @@
 //
 
 import UIKit
-class Feed{
-    var feedText: String
-    var feedAuthorImage : UIImage
-    var feedAuthor : String
-    var feedAuthorTime: String
-    var feedCommentCount: UInt
-    var feedShareCount :UInt
-    var feedLikeCount: UInt
-    var feedLogo : UIImage
-    init(feedText: String,feedCommentCount: UInt,feedShareCount :UInt,
-        feedLikeCount: UInt, feedLogo : UIImage) {
-        self.feedText = feedText
-        self.feedCommentCount = feedCommentCount
-        self.feedShareCount = feedShareCount
-        self.feedLikeCount = feedLikeCount
-        self.feedLogo = UIImage(named: "avatar")!
-        self.feedAuthorImage = UIImage(named: "avatar")!
-        self.feedAuthor = "VkNews"
-        self.feedAuthorTime = "2 марта 23:14"
-    }
+import SwiftyJSON
+class Feed {
+        //var authorImage : UIImage
+       // var author : String
+        var authorDate: Double
+        var type : String
+        var postId : Double
+        var text: String
+        var likesCount : Int
+        var sharesCount : Int
+        var commentsCount : Int
+        init(_ json: JSON) {
+            self.authorDate = json["date"].doubleValue
+            self.text = json["text"].stringValue
+            self.type = json["type"].stringValue
+            self.postId = json["post_id"].doubleValue
+            self.likesCount = json["likes"]["count"].intValue
+            self.sharesCount = json["reposts"]["count"].intValue
+            self.commentsCount = json["comments"]["count"].intValue
+        }
 }
+            

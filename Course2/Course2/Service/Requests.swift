@@ -90,6 +90,30 @@ import RealmSwift
                 }
             }
     }
+
+func getFeed(_ completion: @escaping ([Feed]) -> Void){
+    let path = "/method/newsfeed.get"
+    let parametrs : Parameters = [
+        "v" : "5.60",
+        "access_token": UserSession.instance.token,
+        "filter" : "posts"
+    ]
+    AF.request(host + path,
+               method: .get,
+               parameters: parametrs)
+        .responseData{response in
+            switch response.result{
+            case .success(let data):
+                let json = JSON(data)
+                let newsJSON = json["response"]["items"].arrayValue
+                let news = newsJSON.compactMap{Feed($0)}
+                //print(newsJSON)
+                completion(news)
+            case .failure(let error):
+                print(error)
+            }
+        }
+}
     
     
 
