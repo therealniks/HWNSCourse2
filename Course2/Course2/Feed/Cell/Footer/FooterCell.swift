@@ -8,7 +8,7 @@
 import UIKit
 
 class FooterCell: UITableViewCell {
-    static let reuseIdentifier = String(describing: self)
+    static var reuseIdentifier: String { String(describing: self) }
     static var nib: UINib {
         return UINib(nibName: String(describing: self),
                      bundle: nil)

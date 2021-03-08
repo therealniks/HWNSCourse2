@@ -8,7 +8,7 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
-
+    let networkService =  NetworkService()
     var feed : [Feed]? {
         didSet {
             self.tableView.reloadData()
@@ -25,8 +25,9 @@ class FeedTableViewController: UITableViewController {
                                 forCellReuseIdentifier: BodyCell.reuseIdentifier)
         self.tableView.register(FooterCell.nib,
                                 forCellReuseIdentifier: FooterCell.reuseIdentifier)
-        getFeed(){news in
-            self.feed = news
+        networkService.getFeed(){[weak self] feed in
+            self?.feed = feed
+            self?.tableView.reloadData()
         }
 
     }
@@ -81,12 +82,17 @@ class FeedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 475
+            return 275
         case 1:
             return 350
         default:
             return 100
         }
+    }
+    
+    func loadFeed(){
+        
+        
     }
 
 

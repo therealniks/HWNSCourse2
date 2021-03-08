@@ -11,7 +11,7 @@ import RealmSwift
 class MyGroupsViewController: UITableViewController {
 
 var myGroups = [Groups]()
-
+var networkService = NetworkService()
     // MARK: - Table view data source
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         guard
@@ -48,7 +48,7 @@ var myGroups = [Groups]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-           getGroups(for: UserSession.instance.id){ [weak self] in
+        networkService.getGroups(for: UserSession.instance.id){ [weak self] in
             self?.loadGroupsData(for: UserSession.instance.id)
             self?.tableView.reloadData()
         }

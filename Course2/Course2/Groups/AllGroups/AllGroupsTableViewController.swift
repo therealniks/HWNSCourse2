@@ -9,14 +9,14 @@ import UIKit
 import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
-
-    var myAllGroups = realm.objects(Groups.self)
+    var networkService = NetworkService()
+    lazy var myAllGroups = networkService.realm.objects(Groups.self)
 
     // MARK: - Table view data source
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getGroups(for: UserSession.instance.id){ [weak self] in
+        networkService.getGroups(for: UserSession.instance.id){ [weak self] in
             self?.loadGroupsData(for: UserSession.instance.id)
             self?.tableView.reloadData()
 

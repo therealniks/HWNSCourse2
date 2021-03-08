@@ -9,8 +9,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
-
-    let realm = try! Realm()
+class NetworkService{
+    var realm = try! Realm()
     private let host = "https://api.vk.com"
     func getFriends(for id: Int, completion: @escaping ()->Void){
         let path = "/method/friends.get"
@@ -106,14 +106,14 @@ func getFeed(_ completion: @escaping ([Feed]) -> Void){
             case .success(let data):
                 let json = JSON(data)
                 let newsJSON = json["response"]["items"].arrayValue
-                let news = newsJSON.compactMap{Feed($0)}
+                let feed = newsJSON.compactMap{Feed($0)}
                 //print(newsJSON)
-                completion(news)
+                completion(feed)
             case .failure(let error):
                 print(error)
             }
         }
 }
-    
+}
     
 

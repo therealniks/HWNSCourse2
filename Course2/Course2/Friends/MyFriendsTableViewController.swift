@@ -10,10 +10,10 @@ import Kingfisher
 import RealmSwift
 
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
-    
+var networkService = NetworkService()
 
-    var myFriends = realm.objects(Friends.self)
-    var user = realm.objects(Friends.self)
+    lazy var myFriends = networkService.realm.objects(Friends.self)
+    lazy var user = networkService.realm.objects(Friends.self)
     var token: NotificationToken?
 
     var filtredFriends = [Character : [Friends]]()
@@ -39,7 +39,7 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        getFriends(for: UserSession.instance.id){ [weak self] in
+        networkService.getFriends(for: UserSession.instance.id){ [weak self] in
             self?.loadFriendsData(for: UserSession.instance.id)
             self?.tableView.reloadData()
             }
