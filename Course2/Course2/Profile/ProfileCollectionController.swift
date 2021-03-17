@@ -10,7 +10,7 @@ import Kingfisher
 import RealmSwift
 
 private let reuseIdentifier = "Cell"
-
+var networkService = NetworkService()
 class ProfileCollectionController: UICollectionViewController {
     
     var usersPhotos: Results<Photos>?
@@ -33,8 +33,7 @@ class ProfileCollectionController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userPhotos = Requests()
-        userPhotos.getPhotos(for: id)
+        networkService.getPhotos(for: id)
         maketUserPhotos()
             
     }

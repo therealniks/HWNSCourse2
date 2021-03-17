@@ -10,91 +10,60 @@ import Kingfisher
 import RealmSwift
 
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
-    let request = Requests()
-    var myFriends = [Friends](){
-        didSet {
-            (firstLetters, sortedFriends) = sort(myFriends) // После получения друзей с сервера - сортируем
-        }
-    }
-    var nFriends = [String]()
-    var filtredFriend = [Friends]()
-    var firstLetters = [Character]()
-    var sortedFriends = [Character : [Friends]](){
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    //var token = NotificationToken?()
+var networkService = NetworkService()
+
+    lazy var myFriends = networkService.realm.objects(Friends.self)
+    lazy var user = networkService.realm.objects(Friends.self)
+    var token: NotificationToken?
+
     var filtredFriends = [Character : [Friends]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
     
-   
-    private func sort(_ users: [Friends])->(characters: [Character], sortedUsers: [Character:[Friends]] ){
-            var characters = [Character]()
-            var sortedUsers = [Character : [Friends]]()
-            users.forEach { user in
-            guard let character = user.lastName.first else {return}
-            if sortedUsers.contains(where: {$0.key == character}) {
-                sortedUsers[character]?.append(user)
-            } else {
-                characters.append(character)
-                sortedUsers[character] = [user]
-            }
+
+    
+    func notification(){
+            token = myFriends.observe({ (changes: RealmCollectionChange) in
+                switch changes{
+                case .initial(let result):
+                    print(result)
+                case.update(_, deletions: _, insertions: _, modifications: _):
+                    self.tableView.reloadData()
+                case.error(let error):
+                    print(error.localizedDescription)
+                }
+            })
         }
-        characters.sort()
-        return (characters,sortedUsers)
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-            request.getFriends(for: UserSession.instance.id){ [weak self] in
-                self?.loadFriendsData(for: UserSession.instance.id)
-                self?.tableView.reloadData()
-                
+        networkService.getFriends(for: UserSession.instance.id){ [weak self] in
+            self?.loadFriendsData(for: UserSession.instance.id)
+            self?.tableView.reloadData()
             }
-        
-        
-        
-        
-            
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        if searching{
-          return  filtredFriend.count
-        }else{
-            return firstLetters.count
-        }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myFriends.count
     }
 
-   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        // #warning Incomplete implementation, return the number of rows
-    let charUsers = firstLetters[section]
-    return  sortedFriends[charUsers]?.count ?? 1
-
-   }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath)
                 as? FriendsCell
         else { return UITableViewCell() }
-        let currentChar = firstLetters[indexPath.section]
-        if let currentCharFriends = sortedFriends[currentChar] {
-            let friend = currentCharFriends[indexPath.row]
-            cell.configure(with: friend)
-        }
+        let url = URL(string: myFriends[indexPath.row].icon)
+        let firstName = myFriends[indexPath.row].firstName
+        let lastName = myFriends[indexPath.row].lastName
+        cell.friendAvatar.photoImage.kf.setImage(with: url)
+        cell.friendID.text = "\(firstName) \(lastName)"
         return cell
     }
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            String(firstLetters[section])
-    }
-     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        Array(firstLetters).map { String($0)}
-    }
+
 
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,18 +90,23 @@ class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
 extension MyFriendsTableViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searching = true
-        filtredFriend = myFriends.filter{$0.firstName.prefix(searchText.count) == searchText}
-        tableView.reloadData()
+        guard !searchText.isEmpty else {
+            myFriends = user
+            tableView.reloadData()
+            return
         }
+        myFriends = user.filter("lastName BEGINSWITH '\(searchBar.text!)'")
+        tableView.reloadData()
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
         searchBar.text = ""
         tableView.endEditing(true)
         tableView.reloadData()
     }
+    
+
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searching = false
         searchBar.text = ""
         tableView.endEditing(true)
         tableView.reloadData()
@@ -143,25 +117,20 @@ extension MyFriendsTableViewController {
         if segue.identifier == "profilePhoto"{
             let profilePC = segue.destination as! ProfileCollectionController
             let indexPath = self.tableView.indexPathForSelectedRow
-            let currentChar = self.firstLetters[indexPath!.section]
-            if let currentCharFriends = sortedFriends[currentChar] {
-                let friend = currentCharFriends[indexPath!.row]
+            let friend = self.myFriends[indexPath!.row]
                 profilePC.id = (friend.id)
                 print("id for photos is")
                 print(profilePC.id)
             }
         }
         
-    }
-    
     func loadFriendsData(for id: Int){
         do {
             let realm = try Realm()
             let friend = realm.objects(Friends.self)
-            self.myFriends = Array(friend)
+            self.myFriends = friend
             }catch{
                 print ( error)
             }
-        
     }   
 }

@@ -9,8 +9,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
-
-class Requests {
+class NetworkService{
+    var realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded : true))
     private let host = "https://api.vk.com"
     
     func getFriends(for id: Int, completion: @escaping ()->Void){
@@ -91,6 +91,34 @@ class Requests {
                 }
             }
     }
-    
-    
+
+func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
+    let path = "/method/newsfeed.get"
+    let parametrs : Parameters = [
+        "v" : "5.60",
+        "access_token": UserSession.instance.token,
+        "filter" : "posts",
+        "count" : "100"
+    ]
+    AF.request(host + path,
+               method: .get,
+               parameters: parametrs)
+        .responseData{response in
+            switch response.result{
+            case .success(let data):
+                let json = JSON(data)
+                let newsJSON = json["response"]["items"].arrayValue
+                let newsProfileJSON = json["response"]["profiles"].arrayValue
+                let newsGroupsJSON = json["response"]["groups"].arrayValue
+                let feed = newsJSON.compactMap{Feed($0)}
+                let newsProfiles = newsProfileJSON.compactMap{Friends($0)}
+                let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
+                completion(feed, newsProfiles, newsGroups)
+            case .failure(let error):
+                print(error)
+            }
+        }
 }
+}
+    
+

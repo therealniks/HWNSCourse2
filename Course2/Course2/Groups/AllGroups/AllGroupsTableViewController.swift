@@ -9,15 +9,14 @@ import UIKit
 import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
-
-    var myGroups = [Groups]()
+    var networkService = NetworkService()
+    lazy var myAllGroups = networkService.realm.objects(Groups.self)
 
     // MARK: - Table view data source
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let usersAllGroups = Requests()
-        usersAllGroups.getGroups(for: UserSession.instance.id){ [weak self] in
+        networkService.getGroups(for: UserSession.instance.id){ [weak self] in
             self?.loadGroupsData(for: UserSession.instance.id)
             self?.tableView.reloadData()
 
@@ -28,15 +27,15 @@ class AllGroupsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myGroups.count
+        myAllGroups.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath)
         as? AllGroupsCell
         else { return UITableViewCell() }
-        cell.groupImage.kf.setImage(with: URL(string: myGroups[indexPath.row].icon))
-        cell.groupLabel.text = myGroups[indexPath.row].name
+        cell.groupImage.kf.setImage(with: URL(string: myAllGroups[indexPath.row].icon))
+        cell.groupLabel.text = myAllGroups[indexPath.row].name
         return cell
     }
     
@@ -50,7 +49,7 @@ class AllGroupsTableViewController: UITableViewController {
         do {
             let realm = try Realm()
             let groups = realm.objects(Groups.self)
-            self.myGroups = Array(groups)
+            self.myAllGroups = groups
             }catch{
                 print ( error.localizedDescription)
             }

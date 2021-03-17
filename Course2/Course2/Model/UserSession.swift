@@ -12,5 +12,4 @@ class UserSession{
     private init(){}
     var token = ""
     var id: Int = 0
-    
 }

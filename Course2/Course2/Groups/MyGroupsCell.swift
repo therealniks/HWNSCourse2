@@ -9,6 +9,6 @@ import UIKit
 
 class MyGroupsCell: UITableViewCell {
 
-    @IBOutlet weak var MyGroupTitle: UILabel!
-    @IBOutlet weak var MyGroupAvatar: UIImageView!
+    @IBOutlet weak var myGroupTitle: UILabel!
+    @IBOutlet weak var myGroupAvatar: UIImageView!
 }

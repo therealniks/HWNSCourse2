@@ -6,48 +6,106 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FeedTableViewController: UITableViewController {
+    let networkService =  NetworkService()
+    lazy var feed = networkService.realm.objects(Feed.self)
 
-    let news = [Feed(feedText: "1", feedCommentCount: 15, feedShareCount: 1, feedLikeCount: 15, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "2", feedCommentCount: 100, feedShareCount: 2, feedLikeCount: 18, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "3", feedCommentCount: 90, feedShareCount: 3, feedLikeCount: 19, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "4", feedCommentCount: 14, feedShareCount: 4, feedLikeCount: 6, feedLogo: UIImage(named: "avatar")!),
-                Feed(feedText: "5", feedCommentCount: 678, feedShareCount: 5, feedLikeCount: 15, feedLogo: UIImage(named: "avatar")!)]
+    var token : NotificationToken?
+        
+//        [Feed]? {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//        
+//    }
+    
+    func notification(){
+            token = feed.observe({ (changes: RealmCollectionChange) in
+                switch changes{
+                case .initial(let result):
+                    print(result)
+                case.update(_, deletions: _, insertions: _, modifications: _):
+                    self.tableView.reloadData()
+                case.error(let error):
+                    print(error.localizedDescription)
+                }
+            })
+        }
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.register(HeaderCell.nib,
+                                forCellReuseIdentifier: HeaderCell.reuseIdentifier)
+        self.tableView.register(BodyCell.nib,
+                                forCellReuseIdentifier: BodyCell.reuseIdentifier)
+        self.tableView.register(FooterCell.nib,
+                                forCellReuseIdentifier: FooterCell.reuseIdentifier)
+        
+        
+        DispatchQueue.global().async(flags: .barrier){
+            self.networkService.getFeed {feed, newsProfiles , newsGroups  in
+                self.loadFeed()
+                try? RealmProvider.save(items: feed)
+                //try? RealmProvider.save(items: newsProfiles)
+                //try? RealmProvider.save(items: newsGroups)
+            }
+            
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.notification()
+    }
+    
+    
 
     // MARK: - Table view data source
 
-  /*  override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        news.count
-    }*/
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        self.feed.count
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        news.count
+       3
     }
+    
+    
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
-            as? FeedCell
-              else {return UITableViewCell()}
-        cell.feedCommentCount.text = String(news[indexPath.row].feedCommentCount)
-        cell.feedShareCount.text =  String(news[indexPath.row].feedCommentCount)
-        cell.feedLikeCount.text = String(news[indexPath.row].feedCommentCount)
-        cell.feedText.text = String(news[indexPath.row].feedCommentCount)
-        cell.feedImage.image = news[indexPath.row].feedLogo
-        return cell
+
+                
+        switch indexPath.row{
+        case 0:
+            //guard
+                let feed = self.feed[indexPath.section]
+                let headerCell = self.tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier) as? HeaderCell
+                
+            //else {return HeaderCell()}
+            headerCell?.configure(with: feed)
+            return headerCell!
+        case 1:
+            //guard
+                let feed = self.feed[indexPath.section]
+                let bodyCell = self.tableView.dequeueReusableCell(withIdentifier: BodyCell.reuseIdentifier) as? BodyCell
+            //else {return BodyCell()}
+            bodyCell?.configure(with: feed)
+            return bodyCell!
+        case 2:
+            //guard
+                let feed = self.feed[indexPath.section]
+                let footerCell = self.tableView.dequeueReusableCell(withIdentifier: FooterCell.reuseIdentifier) as? FooterCell
+           // else {return FooterCell()}
+            footerCell?.configure(with: feed)
+            return footerCell!
+        default:
+            return UITableViewCell()
+        }
+    
     }
     
     
@@ -55,50 +113,29 @@ class FeedTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 275
+        case 1:
+            return 350
+        default:
+            return 100
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func loadFeed(){
+        do {
+            let realm = try Realm()
+            let news = realm.objects(Feed.self)
+            self.feed = news
+            }catch{
+                print ( error)
+            }
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+            
 }
+
+
+
