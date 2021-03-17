@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
+import Kingfisher
 
 class HeaderCell: UITableViewCell {
     static var reuseIdentifier: String { String(describing: self) }
@@ -36,15 +38,35 @@ class HeaderCell: UITableViewCell {
         self.feedAuthorTime.text = nil
         self.feedText.text = nil
     }
-    func configure(with feed: Feed) {
-        self.feedAuthor.text = "GKB"
+    func configure(with feed: Feed?) {
+        guard var sourceID = feed?.sourceID else {return}
+        guard sourceID != 0 else {return}
+        var photoURL : String = ""
+        var author: String = ""
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .medium
-        let date = Date(timeIntervalSince1970: TimeInterval(feed.authorDate))
-        self.feedAuthorTime.text = dateFormatter.string(from: date)
-        self.feedAuthorImage.image = UIImage(named: "avatar")
-        self.feedText.text = feed.text
-        print("success w1")
+        let date = Date(timeIntervalSince1970: TimeInterval(feed!.authorDate))
+        if sourceID > 0 {
+            guard 
+                  let source = try? Realm().objects(Friends.self).filter("id == %@", sourceID),
+                  let friend = source.first
+                  else {return}
+            photoURL = friend.icon
+            author = (friend.lastName + " " + friend.firstName)
+        } else{
+            sourceID = (-1) * sourceID
+            guard
+                  let source = try? Realm().objects(Groups.self).filter("id == %@", sourceID),
+                  let group = source.first
+            else {return}
+            photoURL = group.icon
+            author = group.name
+        }
+        feedAuthorImage.kf.setImage(with:URL(string: photoURL))
+        feedAuthor.text = author
+        feedAuthorTime.text = dateFormatter.string(from: date)
+        feedText.text = feed?.text
+        
     }
     
     

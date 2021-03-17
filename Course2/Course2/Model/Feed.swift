@@ -7,24 +7,31 @@
 
 import UIKit
 import SwiftyJSON
-class Feed {
-        //var authorImage : UIImage
-       // var author : String
-        var authorDate: Double
-        var type : String
-        var postId : Double
-        var text: String
-        var likesCount : Int
-        var sharesCount : Int
-        var commentsCount : Int
-        init(_ json: JSON) {
+import RealmSwift
+class Feed : Object {
+    @objc dynamic var authorDate: Double = 0
+    var type : String = ""
+    @objc dynamic var postID : Int = 0
+    @objc dynamic var text: String = ""
+    @objc dynamic var likesCount : Int = 0
+    @objc dynamic var sharesCount : Int = 0
+    @objc dynamic var commentsCount : Int = 0
+    @objc dynamic var postIsLiked: Int = 0
+    @objc dynamic var sourceID : Int = 0
+        convenience init(_ json: JSON) {
+            self.init()
             self.authorDate = json["date"].doubleValue
             self.text = json["text"].stringValue
             self.type = json["type"].stringValue
-            self.postId = json["post_id"].doubleValue
             self.likesCount = json["likes"]["count"].intValue
+            self.postIsLiked = json ["likes"]["user_likes"].intValue
             self.sharesCount = json["reposts"]["count"].intValue
             self.commentsCount = json["comments"]["count"].intValue
+            self.sourceID = json["source_id"].intValue
+            self.postID = json["post_id"].intValue
         }
+    
+    override static func primaryKey()-> String? {
+        return "postID"
+    }
 }
-            

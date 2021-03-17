@@ -10,8 +10,9 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 class NetworkService{
-    var realm = try! Realm()
+    var realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded : true))
     private let host = "https://api.vk.com"
+    
     func getFriends(for id: Int, completion: @escaping ()->Void){
         let path = "/method/friends.get"
         let parametrs : Parameters = [
@@ -91,12 +92,13 @@ class NetworkService{
             }
     }
 
-func getFeed(_ completion: @escaping ([Feed]) -> Void){
+func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
     let path = "/method/newsfeed.get"
     let parametrs : Parameters = [
         "v" : "5.60",
         "access_token": UserSession.instance.token,
-        "filter" : "posts"
+        "filter" : "posts",
+        "count" : "100"
     ]
     AF.request(host + path,
                method: .get,
@@ -106,9 +108,12 @@ func getFeed(_ completion: @escaping ([Feed]) -> Void){
             case .success(let data):
                 let json = JSON(data)
                 let newsJSON = json["response"]["items"].arrayValue
+                let newsProfileJSON = json["response"]["profiles"].arrayValue
+                let newsGroupsJSON = json["response"]["groups"].arrayValue
                 let feed = newsJSON.compactMap{Feed($0)}
-                //print(newsJSON)
-                completion(feed)
+                let newsProfiles = newsProfileJSON.compactMap{Friends($0)}
+                let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
+                completion(feed, newsProfiles, newsGroups)
             case .failure(let error):
                 print(error)
             }

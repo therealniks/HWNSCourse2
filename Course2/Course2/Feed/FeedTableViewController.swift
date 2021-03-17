@@ -6,15 +6,33 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FeedTableViewController: UITableViewController {
     let networkService =  NetworkService()
-    var feed : [Feed]? {
-        didSet {
-            self.tableView.reloadData()
-        }
+    lazy var feed = networkService.realm.objects(Feed.self)
+
+    var token : NotificationToken?
         
-    }
+//        [Feed]? {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//        
+//    }
+    
+    func notification(){
+            token = feed.observe({ (changes: RealmCollectionChange) in
+                switch changes{
+                case .initial(let result):
+                    print(result)
+                case.update(_, deletions: _, insertions: _, modifications: _):
+                    self.tableView.reloadData()
+                case.error(let error):
+                    print(error.localizedDescription)
+                }
+            })
+        }
     
    
     override func viewDidLoad() {
@@ -25,17 +43,30 @@ class FeedTableViewController: UITableViewController {
                                 forCellReuseIdentifier: BodyCell.reuseIdentifier)
         self.tableView.register(FooterCell.nib,
                                 forCellReuseIdentifier: FooterCell.reuseIdentifier)
-        networkService.getFeed(){[weak self] feed in
-            self?.feed = feed
-            self?.tableView.reloadData()
+        
+        
+        DispatchQueue.global().async(flags: .barrier){
+            self.networkService.getFeed {feed, newsProfiles , newsGroups  in
+                self.loadFeed()
+                try? RealmProvider.save(items: feed)
+                //try? RealmProvider.save(items: newsProfiles)
+                //try? RealmProvider.save(items: newsGroups)
+            }
+            
         }
-
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.notification()
+    }
+    
+    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        self.feed?.count ?? 0
+        self.feed.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,28 +77,31 @@ class FeedTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+                
         switch indexPath.row{
         case 0:
-            guard
-                let feed = self.feed?[indexPath.section],
+            //guard
+                let feed = self.feed[indexPath.section]
                 let headerCell = self.tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier) as? HeaderCell
-            else {return HeaderCell()}
-            headerCell.configure(with: feed)
-            return headerCell
+                
+            //else {return HeaderCell()}
+            headerCell?.configure(with: feed)
+            return headerCell!
         case 1:
-            guard
-                let feed = self.feed?[indexPath.section],
+            //guard
+                let feed = self.feed[indexPath.section]
                 let bodyCell = self.tableView.dequeueReusableCell(withIdentifier: BodyCell.reuseIdentifier) as? BodyCell
-            else {return BodyCell()}
-            bodyCell.configure(with: feed)
-            return bodyCell
+            //else {return BodyCell()}
+            bodyCell?.configure(with: feed)
+            return bodyCell!
         case 2:
-            guard
-                let feed = self.feed?[indexPath.section],
+            //guard
+                let feed = self.feed[indexPath.section]
                 let footerCell = self.tableView.dequeueReusableCell(withIdentifier: FooterCell.reuseIdentifier) as? FooterCell
-            else {return FooterCell()}
-            footerCell.configure(with: feed)
-            return footerCell
+           // else {return FooterCell()}
+            footerCell?.configure(with: feed)
+            return footerCell!
         default:
             return UITableViewCell()
         }
@@ -91,9 +125,17 @@ class FeedTableViewController: UITableViewController {
     }
     
     func loadFeed(){
-        
+        do {
+            let realm = try Realm()
+            let news = realm.objects(Feed.self)
+            self.feed = news
+            }catch{
+                print ( error)
+            }
         
     }
-
-
+            
 }
+
+
+

@@ -95,7 +95,7 @@ extension MyFriendsTableViewController {
             tableView.reloadData()
             return
         }
-        myFriends = user.filter(" lastName BEGINSWITH '\(searchBar.text!)'")
+        myFriends = user.filter("lastName BEGINSWITH '\(searchBar.text!)'")
         tableView.reloadData()
     }
     
@@ -124,8 +124,6 @@ extension MyFriendsTableViewController {
             }
         }
         
-    
-    
     func loadFriendsData(for id: Int){
         do {
             let realm = try Realm()
@@ -134,6 +132,5 @@ extension MyFriendsTableViewController {
             }catch{
                 print ( error)
             }
-        
     }   
 }

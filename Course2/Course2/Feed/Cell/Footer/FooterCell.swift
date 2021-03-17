@@ -39,9 +39,9 @@ class FooterCell: UITableViewCell {
     
     func configure(with feed: Feed) {
         self.likesControl.likeCount = feed.likesCount
+        feed.postIsLiked != 0 ? (self.likesControl.isLiked = true) : (self.likesControl.isLiked = false)
         self.commentsButton.setTitle("\(feed.commentsCount)", for: .normal)
         self.sharesButton.setTitle("\(feed.sharesCount)", for: .normal)
-        print("success w3")
     }
     
 }

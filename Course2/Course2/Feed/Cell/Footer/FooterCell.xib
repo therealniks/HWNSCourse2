@@ -17,35 +17,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="576" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-gL-4Ld">
-                        <rect key="frame" x="250" y="35" width="77" height="22"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-gL-4Ld">
+                        <rect key="frame" x="208" y="35" width="77" height="22"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                         <state key="normal" title="Shares" image="arrowshape.turn.up.right" catalog="system">
                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISF-Eu-Abp">
-                        <rect key="frame" x="402" y="35" width="110" height="22"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISF-Eu-Abp">
+                        <rect key="frame" x="360" y="35" width="110" height="22"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                         <state key="normal" title="Comments" image="message" catalog="system">
                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                         </state>
                     </button>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-Xz-0aW" customClass="LikeControl" customModule="Course2" customModuleProvider="target">
-                        <rect key="frame" x="48" y="20" width="119" height="52"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-Xz-0aW" customClass="LikeControl" customModule="Course2" customModuleProvider="target">
+                        <rect key="frame" x="48" y="20" width="77" height="52"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="77" id="5lW-lZ-37C"/>
+                            <constraint firstAttribute="height" constant="52" id="gTg-gT-UY5"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IJ1-gL-4Ld" firstAttribute="leading" secondItem="UhD-Xz-0aW" secondAttribute="trailing" constant="83" id="288-tz-B4u"/>
                     <constraint firstItem="IJ1-gL-4Ld" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="3qh-Lo-ndV"/>
-                    <constraint firstItem="UhD-Xz-0aW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="48" id="7iJ-I0-RuP"/>
+                    <constraint firstItem="UhD-Xz-0aW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="48" id="6tZ-24-IHS"/>
+                    <constraint firstItem="IJ1-gL-4Ld" firstAttribute="leading" secondItem="UhD-Xz-0aW" secondAttribute="trailing" constant="83" id="Ghh-ib-qGa"/>
                     <constraint firstItem="ISF-Eu-Abp" firstAttribute="leading" secondItem="IJ1-gL-4Ld" secondAttribute="trailing" constant="75" id="Ik1-p6-UaF"/>
                     <constraint firstItem="ISF-Eu-Abp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lsj-Gy-QmW"/>
                     <constraint firstItem="IJ1-gL-4Ld" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Rhc-ac-aeu"/>
-                    <constraint firstItem="UhD-Xz-0aW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="XvS-Cr-yaQ"/>
                     <constraint firstItem="ISF-Eu-Abp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="bTJ-ee-HOp"/>
-                    <constraint firstItem="UhD-Xz-0aW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vha-QH-Eut"/>
+                    <constraint firstItem="UhD-Xz-0aW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wgZ-uj-L5D"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

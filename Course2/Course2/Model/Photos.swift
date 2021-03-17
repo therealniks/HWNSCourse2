@@ -25,16 +25,16 @@ class Photos: Object {
             let newSizePoints = newSize["width"].intValue * newSize["height"].intValue
             return currentPoints >= newSizePoints ? currentTopSize : newSize
         }
-        print(biggestSize)
+       // print(biggestSize)
         self.ownerID = ownerID
         self.url = biggestSize["url"].stringValue
         self.likes = json["likes"]["count"].intValue
-        print("likes %- \(likes)")
+        //print("likes %- \(likes)")
         self.someURL = URL(string: biggestSize["url"].stringValue)
     }
     
     override static func primaryKey()-> String? {
-        return "id"
+        return "url"
     }
 }
 

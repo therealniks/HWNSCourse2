@@ -26,6 +26,7 @@
 		8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809732982577F6960096D5D4 /* LaunchScreen.storyboard */; };
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
 		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
+		80C2910B260273C70026E532 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2910A260273C70026E532 /* PhotoService.swift */; };
 		80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2F3BC25B5F53200B387AD /* Requests.swift */; };
 		80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E056A625D2A39500945C9E /* RealmProvider.swift */; };
 		80EC8F3D25AEF541002D018E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */; };
@@ -71,6 +72,7 @@
 		8097329B2577F6960096D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		80C2910A260273C70026E532 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		80C2F3BC25B5F53200B387AD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		80E056A625D2A39500945C9E /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		80EC8F3C25AEF541002D018E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				80C2F3BC25B5F53200B387AD /* Requests.swift */,
 				80E056A625D2A39500945C9E /* RealmProvider.swift */,
+				80C2910A260273C70026E532 /* PhotoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -177,6 +180,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8096FA8B25FA999F00CA976D /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8097328F2577F6960096D5D4 /* SceneDelegate.swift */,
+				809732912577F6960096D5D4 /* ViewController.swift */,
+				8097328D2577F6960096D5D4 /* AppDelegate.swift */,
+				809732A22577F75E0096D5D4 /* LoginViewController.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		809732812577F6950096D5D4 = {
 			isa = PBXGroup;
 			children = (
@@ -198,10 +212,7 @@
 		8097328C2577F6950096D5D4 /* Course2 */ = {
 			isa = PBXGroup;
 			children = (
-				8097328D2577F6960096D5D4 /* AppDelegate.swift */,
-				809732A22577F75E0096D5D4 /* LoginViewController.swift */,
-				8097328F2577F6960096D5D4 /* SceneDelegate.swift */,
-				809732912577F6960096D5D4 /* ViewController.swift */,
+				8096FA8B25FA999F00CA976D /* System */,
 				809732962577F6960096D5D4 /* Assets.xcassets */,
 				8097329B2577F6960096D5D4 /* Info.plist */,
 				8066374925891C3000A75A8D /* Animations */,
@@ -405,6 +416,7 @@
 				80F50B3A25813966005D5261 /* ProfileCollectionController.swift in Sources */,
 				802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */,
 				80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */,
+				80C2910B260273C70026E532 /* PhotoService.swift in Sources */,
 				80FC2A8D25F000160002324C /* BodyCell.swift in Sources */,
 				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,

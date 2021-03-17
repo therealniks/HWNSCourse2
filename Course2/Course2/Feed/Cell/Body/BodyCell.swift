@@ -34,8 +34,6 @@ class BodyCell: UITableViewCell {
  
     func configure(with feed: Feed) {
         self.feedImage.image = UIImage(named: "avatar")
-        print("success w2")
-
     }
     
     
