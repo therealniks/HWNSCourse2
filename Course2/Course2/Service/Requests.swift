@@ -84,7 +84,7 @@ class NetworkService{
                 case .success(let data):
                     let json = JSON(data)
                     let photosJSONs = json["response"]["items"].arrayValue
-                    let photos = photosJSONs.compactMap { Photos($0, id) }
+                    let photos = photosJSONs.compactMap { Photo($0, id) }
                     try? RealmProvider.save(items: photos)
                 case .failure(let error):
                     print(error)
@@ -114,6 +114,7 @@ func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
                 let newsProfiles = newsProfileJSON.compactMap{Friends($0)}
                 let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
                 completion(feed, newsProfiles, newsGroups)
+                print(feed)
             case .failure(let error):
                 print(error)
             }

@@ -7,12 +7,15 @@
 
 import RealmSwift
 import SwiftyJSON
-class Photos: Object {
+class Photo: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var ownerID: Int = 0
     @objc dynamic var url: String = ""
     @objc dynamic var likes: Int = 0
     var someURL: URL?
+    var photo: String = ""
+    var height: Float = 0
+    var width: Float = 0
 
     
     let owners = LinkingObjects(fromType : Friends.self , property : "photos")
@@ -25,12 +28,18 @@ class Photos: Object {
             let newSizePoints = newSize["width"].intValue * newSize["height"].intValue
             return currentPoints >= newSizePoints ? currentTopSize : newSize
         }
-       // print(biggestSize)
         self.ownerID = ownerID
         self.url = biggestSize["url"].stringValue
         self.likes = json["likes"]["count"].intValue
-        //print("likes %- \(likes)")
         self.someURL = URL(string: biggestSize["url"].stringValue)
+    }
+    
+    convenience init(_ json: [JSON]) {
+            self.init()
+            if !json.isEmpty {
+            self.photo = json[0]["photo"]["photo_604"].stringValue
+
+            }
     }
     
     override static func primaryKey()-> String? {

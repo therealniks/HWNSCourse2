@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		801832EB25BC37B000488E3F /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801832EA25BC37B000488E3F /* Photos.swift */; };
+		801832EB25BC37B000488E3F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801832EA25BC37B000488E3F /* Photo.swift */; };
 		802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A1E57259BB2D80090FCF5 /* ScaleImage.swift */; };
 		802EE8F825AF59270048D8CD /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE8F725AF59270048D8CD /* UserSession.swift */; };
 		80414E2925B9E393007E83EF /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80414E2825B9E393007E83EF /* Groups.swift */; };
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		65FDD6969E6501C6D2804BA9 /* Pods_Course2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Course2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F30404D559632CD92931C00 /* Pods-Course2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Course2.debug.xcconfig"; path = "Target Support Files/Pods-Course2/Pods-Course2.debug.xcconfig"; sourceTree = "<group>"; };
-		801832EA25BC37B000488E3F /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		801832EA25BC37B000488E3F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		802A1E57259BB2D80090FCF5 /* ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale\U0010Image.swift"; sourceTree = "<group>"; };
 		802EE8F725AF59270048D8CD /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		80414E2825B9E393007E83EF /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 				802EE8F725AF59270048D8CD /* UserSession.swift */,
 				8090146525B8A13C00D524BD /* Friends.swift */,
 				80414E2825B9E393007E83EF /* Groups.swift */,
-				801832EA25BC37B000488E3F /* Photos.swift */,
+				801832EA25BC37B000488E3F /* Photo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,7 +436,7 @@
 				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
 				8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */,
 				80FC2A9225F000270002324C /* FooterCell.swift in Sources */,
-				801832EB25BC37B000488E3F /* Photos.swift in Sources */,
+				801832EB25BC37B000488E3F /* Photo.swift in Sources */,
 				80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */,
 				80EC8F4725AEF61C002D018E /* PushAnimator.swift in Sources */,
 				80EC8F4425AEF610002D018E /* PopAnimator.swift in Sources */,

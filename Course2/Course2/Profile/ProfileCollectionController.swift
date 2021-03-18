@@ -13,7 +13,7 @@ private let reuseIdentifier = "Cell"
 var networkService = NetworkService()
 class ProfileCollectionController: UICollectionViewController {
     
-    var usersPhotos: Results<Photos>?
+    var usersPhotos: Results<Photo>?
     var notificationToken: NotificationToken?
     var id : Int = 0
     // MARK: UICollectionViewDataSource
@@ -21,6 +21,7 @@ class ProfileCollectionController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         usersPhotos?.count ?? 0
     }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
             as? ProfileCell
@@ -50,7 +51,7 @@ class ProfileCollectionController: UICollectionViewController {
     private func maketUserPhotos() {
         do {
             usersPhotos = try RealmProvider
-                .get(Photos.self)
+                .get(Photo.self)
                 .filter("ownerID == %@", id)
         } catch {
             print(error)

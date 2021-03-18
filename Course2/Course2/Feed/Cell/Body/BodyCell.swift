@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BodyCell: UITableViewCell {
     static var reuseIdentifier: String { String(describing: self) }
@@ -32,9 +33,15 @@ class BodyCell: UITableViewCell {
         self.feedImage.image = nil
     }
  
-    func configure(with feed: Feed) {
-        self.feedImage.image = UIImage(named: "avatar")
+    func configure(with photo: Photo?, by photoService:PhotoService) {
+        guard let photo = photo else {return}
+        let url = photo.photo
+        photoService.photo(url: url) {[weak self] image in
+                    self?.feedImage.image = image
+                }
+            }
+    
+    
     }
     
-    
-}
+

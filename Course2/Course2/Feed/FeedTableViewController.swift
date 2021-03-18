@@ -11,6 +11,7 @@ import RealmSwift
 class FeedTableViewController: UITableViewController {
     let networkService =  NetworkService()
     lazy var feed = networkService.realm.objects(Feed.self)
+    var photoService : PhotoService?
 
     var token : NotificationToken?
         
@@ -54,6 +55,7 @@ class FeedTableViewController: UITableViewController {
             }
             
         }
+        photoService = PhotoService(container: tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,10 +92,10 @@ class FeedTableViewController: UITableViewController {
             return headerCell!
         case 1:
             //guard
-                let feed = self.feed[indexPath.section]
+            let photo = self.feed[indexPath.section].feedPhoto
                 let bodyCell = self.tableView.dequeueReusableCell(withIdentifier: BodyCell.reuseIdentifier) as? BodyCell
             //else {return BodyCell()}
-            bodyCell?.configure(with: feed)
+            bodyCell?.configure(with: photo, by: photoService!)
             return bodyCell!
         case 2:
             //guard
