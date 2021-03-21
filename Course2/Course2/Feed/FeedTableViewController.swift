@@ -12,15 +12,7 @@ class FeedTableViewController: UITableViewController {
     let networkService =  NetworkService()
     lazy var feed = networkService.realm.objects(Feed.self)
     var photoService : PhotoService?
-
     var token : NotificationToken?
-        
-//        [Feed]? {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//        
-//    }
     
     func notification(){
             token = feed.observe({ (changes: RealmCollectionChange) in
@@ -34,24 +26,22 @@ class FeedTableViewController: UITableViewController {
                 }
             })
         }
-    
-   
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(HeaderCell.nib,
                                 forCellReuseIdentifier: HeaderCell.reuseIdentifier)
+        self.tableView.register(TextCell.nib,
+                                forCellReuseIdentifier: TextCell.reuseIdentifier)
         self.tableView.register(BodyCell.nib,
                                 forCellReuseIdentifier: BodyCell.reuseIdentifier)
         self.tableView.register(FooterCell.nib,
                                 forCellReuseIdentifier: FooterCell.reuseIdentifier)
-        
-        
+
         DispatchQueue.global().async(flags: .barrier){
             self.networkService.getFeed {feed, newsProfiles , newsGroups  in
                 self.loadFeed()
                 try? RealmProvider.save(items: feed)
-                //try? RealmProvider.save(items: newsProfiles)
-                //try? RealmProvider.save(items: newsGroups)
             }
             
         }
@@ -63,8 +53,6 @@ class FeedTableViewController: UITableViewController {
         self.notification()
     }
     
-    
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,11 +60,8 @@ class FeedTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       3
+       4
     }
-    
-    
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -91,16 +76,22 @@ class FeedTableViewController: UITableViewController {
             headerCell?.configure(with: feed)
             return headerCell!
         case 1:
-            //guard
-            let photo = self.feed[indexPath.section].feedPhoto
-                let bodyCell = self.tableView.dequeueReusableCell(withIdentifier: BodyCell.reuseIdentifier) as? BodyCell
+            let feed = self.feed[indexPath.section]
+            let textCell = self.tableView.dequeueReusableCell(withIdentifier: TextCell.reuseIdentifier) as? TextCell
+            textCell?.configure(with: feed)
+            return textCell!
+            
+        case 2:
+                //guard
+            let photo = self.feed[indexPath.section]
+            let bodyCell = self.tableView.dequeueReusableCell(withIdentifier: BodyCell.reuseIdentifier) as? BodyCell
             //else {return BodyCell()}
             bodyCell?.configure(with: photo, by: photoService!)
             return bodyCell!
-        case 2:
+        case 3:
             //guard
-                let feed = self.feed[indexPath.section]
-                let footerCell = self.tableView.dequeueReusableCell(withIdentifier: FooterCell.reuseIdentifier) as? FooterCell
+            let feed = self.feed[indexPath.section]
+            let footerCell = self.tableView.dequeueReusableCell(withIdentifier: FooterCell.reuseIdentifier) as? FooterCell
            // else {return FooterCell()}
             footerCell?.configure(with: feed)
             return footerCell!
@@ -118,11 +109,25 @@ class FeedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 275
-        case 1:
-            return 350
-        default:
             return 100
+        case 1:
+            if feed[indexPath.section].text.isEmpty{
+                return 0
+            }
+            else{
+                 
+                return 200
+            }
+            
+        case 2:
+//            if ((feed[indexPath.section]) != nil){
+//                return 0
+//            }
+//            else{
+                return 250
+            //}
+        default:
+            return 90
         }
     }
     
@@ -134,10 +139,5 @@ class FeedTableViewController: UITableViewController {
             }catch{
                 print ( error)
             }
-        
     }
-            
 }
-
-
-

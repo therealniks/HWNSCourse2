@@ -25,6 +25,8 @@
 		809732972577F6960096D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809732962577F6960096D5D4 /* Assets.xcassets */; };
 		8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809732982577F6960096D5D4 /* LaunchScreen.storyboard */; };
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
+		80A77FFB26074A9F00FB642D /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A77FF926074A9F00FB642D /* TextCell.swift */; };
+		80A77FFC26074A9F00FB642D /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A77FFA26074A9F00FB642D /* TextCell.xib */; };
 		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
 		80C2910B260273C70026E532 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2910A260273C70026E532 /* PhotoService.swift */; };
 		80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2F3BC25B5F53200B387AD /* Requests.swift */; };
@@ -71,6 +73,8 @@
 		809732992577F6960096D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8097329B2577F6960096D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		80A77FF926074A9F00FB642D /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		80A77FFA26074A9F00FB642D /* TextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
 		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		80C2910A260273C70026E532 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		80C2F3BC25B5F53200B387AD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				80FC2A8725EFFFA70002324C /* Header */,
+				80A77FF826074A7500FB642D /* Text */,
 				80FC2A8925EFFFB50002324C /* Body */,
 				80FC2A8A25EFFFBA0002324C /* Footer */,
 			);
@@ -226,6 +231,15 @@
 				8010A41A25B60B040038E467 /* Service */,
 			);
 			path = Course2;
+			sourceTree = "<group>";
+		};
+		80A77FF826074A7500FB642D /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				80A77FF926074A9F00FB642D /* TextCell.swift */,
+				80A77FFA26074A9F00FB642D /* TextCell.xib */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		80AF35DB258E5642007CB04E /* Profile */ = {
@@ -354,6 +368,7 @@
 				8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */,
 				80FC2A9325F000270002324C /* FooterCell.xib in Resources */,
 				809732972577F6960096D5D4 /* Assets.xcassets in Resources */,
+				80A77FFC26074A9F00FB642D /* TextCell.xib in Resources */,
 				80FC2A8E25F000160002324C /* BodyCell.xib in Resources */,
 				809732952577F6960096D5D4 /* Main.storyboard in Resources */,
 			);
@@ -418,6 +433,7 @@
 				80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */,
 				80C2910B260273C70026E532 /* PhotoService.swift in Sources */,
 				80FC2A8D25F000160002324C /* BodyCell.swift in Sources */,
+				80A77FFB26074A9F00FB642D /* TextCell.swift in Sources */,
 				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,
 				8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */,

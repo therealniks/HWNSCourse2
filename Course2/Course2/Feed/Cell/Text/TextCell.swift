@@ -1,20 +1,31 @@
 //
-//  BodyCell.swift
+//  TextCell.swift
 //  Course2
 //
-//  Created by N!kS on 03.03.2021.
+//  Created by N!kS on 21.03.2021.
 //
 
 import UIKit
 
-class BodyCell: UITableViewCell {
+class TextCell: UITableViewCell {
     static var reuseIdentifier: String { String(describing: self) }
     static var nib: UINib {
         return UINib(nibName: String(describing: self),
                      bundle: nil)
     }
+    @IBOutlet weak var feedText : UILabel!
     
-    @IBOutlet weak var feedImage: UIImageView!
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.feedText.text = nil
+    }
+    
+    
+    func configure(with feed: Feed) {
+        self.feedText.text = feed.text
+    }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,15 +37,5 @@ class BodyCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.feedImage.image = nil
-    }
- 
-    func configure(with feed: Feed, by photoService:PhotoService) {
-        let url = feed.feedPhotoURL
-        photoService.photo(url: url) {[weak self] image in
-                    self?.feedImage.image = image
-                }
-            }
-    }
+    
+}

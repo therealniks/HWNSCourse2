@@ -12,11 +12,11 @@ import RealmSwift
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
 var networkService = NetworkService()
 
-    lazy var myFriends = networkService.realm.objects(Friends.self)
-    lazy var user = networkService.realm.objects(Friends.self)
-    var token: NotificationToken?
-
-    var filtredFriends = [Character : [Friends]]()
+    lazy var myFriends = networkService.realm.objects(Friend.self)
+    lazy var user = networkService.realm.objects(Friend.self)
+    private var token: NotificationToken?
+    private var data = [Friend]()
+    private var filtredFriends = [Character : [Friend]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
     
@@ -34,8 +34,6 @@ var networkService = NetworkService()
                 }
             })
         }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -50,7 +48,6 @@ var networkService = NetworkService()
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myFriends.count
     }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath)
@@ -63,8 +60,6 @@ var networkService = NetworkService()
         cell.friendID.text = "\(firstName) \(lastName)"
         return cell
     }
-
-
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! FriendsCell
@@ -84,9 +79,6 @@ var networkService = NetworkService()
     }
 }
 
-
-
-
 extension MyFriendsTableViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -104,7 +96,6 @@ extension MyFriendsTableViewController {
         tableView.endEditing(true)
         tableView.reloadData()
     }
-    
 
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.text = ""
@@ -112,25 +103,26 @@ extension MyFriendsTableViewController {
         tableView.reloadData()
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profilePhoto"{
             let profilePC = segue.destination as! ProfileCollectionController
             let indexPath = self.tableView.indexPathForSelectedRow
             let friend = self.myFriends[indexPath!.row]
-                profilePC.id = (friend.id)
-                print("id for photos is")
-                print(profilePC.id)
+            profilePC.id = (friend.id)
             }
         }
         
     func loadFriendsData(for id: Int){
         do {
             let realm = try Realm()
-            let friend = realm.objects(Friends.self)
+            let friend = realm.objects(Friend.self)
             self.myFriends = friend
             }catch{
                 print ( error)
             }
-    }   
+    }
 }
+
+
+
+

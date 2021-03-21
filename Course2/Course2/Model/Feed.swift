@@ -18,7 +18,9 @@ class Feed : Object {
     @objc dynamic var commentsCount : Int = 0
     @objc dynamic var postIsLiked: Int = 0
     @objc dynamic var sourceID : Int = 0
-    var feedPhoto: Photo?
+    var array = [JSON]()
+    var feedPhotoURL : String = ""
+    
         convenience init(_ json: JSON) {
             self.init()
             self.authorDate = json["date"].doubleValue
@@ -30,8 +32,15 @@ class Feed : Object {
             self.commentsCount = json["comments"]["count"].intValue
             self.sourceID = json["source_id"].intValue
             self.postID = json["post_id"].intValue
-            self.feedPhoto = Photo.init(json["attachment"].arrayValue)
+            self.type = json["attachments"]["type"].stringValue
+            if type == "photo"{
+                let photoArray = json["attachments"].arrayValue
+                feedPhotoURL = photoArray[0]["photo"]["photo_604"].stringValue
+                
+            }
+            
         }
+        
     
     override static func primaryKey()-> String? {
         return "postID"

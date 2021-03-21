@@ -31,7 +31,7 @@ class NetworkService{
                         case .success(let data):
                             let json = JSON(data)
                             let friendsJSONs = json["response"]["items"].arrayValue
-                            let myFriends = friendsJSONs.compactMap { Friends($0) }
+                            let myFriends = friendsJSONs.compactMap { Friend($0) }
                             try? RealmProvider.save(items: myFriends)
                             completion()
                         case .failure(let error):
@@ -84,7 +84,7 @@ class NetworkService{
                 case .success(let data):
                     let json = JSON(data)
                     let photosJSONs = json["response"]["items"].arrayValue
-                    let photos = photosJSONs.compactMap { Photo($0, id) }
+                    let photos = photosJSONs.compactMap { Photo($0, ownerID: id) }
                     try? RealmProvider.save(items: photos)
                 case .failure(let error):
                     print(error)
@@ -92,7 +92,7 @@ class NetworkService{
             }
     }
 
-func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
+func getFeed(_ completion: @escaping ([Feed], [Friend], [Groups]) -> Void){
     let path = "/method/newsfeed.get"
     let parametrs : Parameters = [
         "v" : "5.60",
@@ -111,10 +111,9 @@ func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
                 let newsProfileJSON = json["response"]["profiles"].arrayValue
                 let newsGroupsJSON = json["response"]["groups"].arrayValue
                 let feed = newsJSON.compactMap{Feed($0)}
-                let newsProfiles = newsProfileJSON.compactMap{Friends($0)}
+                let newsProfiles = newsProfileJSON.compactMap{Friend($0)}
                 let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
                 completion(feed, newsProfiles, newsGroups)
-                print(feed)
             case .failure(let error):
                 print(error)
             }

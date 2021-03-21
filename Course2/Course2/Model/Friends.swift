@@ -8,7 +8,7 @@
 import SwiftyJSON
 import RealmSwift
 
-class Friends: Object {
+class Friend: Object {
     @objc dynamic var firstName: String = ""
     @objc dynamic var lastName : String = ""
     @objc dynamic var id : Int = 0

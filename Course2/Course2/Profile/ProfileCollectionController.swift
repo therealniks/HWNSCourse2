@@ -26,9 +26,9 @@ class ProfileCollectionController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath)
             as? ProfileCell
         guard let userPhoto = usersPhotos?[indexPath.row] else { return UICollectionViewCell() }
-        cell?.image.kf.setImage(with: URL(string: userPhoto.url))
-        cell?.likeControl.likeCount = userPhoto.likes
-        print("opa \( userPhoto.likes)")
+        cell?.configure(with: userPhoto)
+        //cell?.friendPhotoImageView.kf.setImage(with: URL(string: userPhoto.url))
+        //cell?.likeControl.likeCount = userPhoto.likes
         return cell!
         }
     

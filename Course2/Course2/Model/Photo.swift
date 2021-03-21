@@ -13,14 +13,14 @@ class Photo: Object {
     @objc dynamic var url: String = ""
     @objc dynamic var likes: Int = 0
     var someURL: URL?
-    var photo: String = ""
+    @objc dynamic var photo: String = ""
     var height: Float = 0
     var width: Float = 0
 
     
-    let owners = LinkingObjects(fromType : Friends.self , property : "photos")
+    let owners = LinkingObjects(fromType : Friend.self , property : "photos")
     
-    convenience init(_ json: JSON, _ ownerID: Int) {
+    convenience init(_ json: JSON,  ownerID: Int) {
         self.init()
         let sizes = json["sizes"].arrayValue
         let biggestSize = sizes.reduce(sizes[0]) { currentTopSize, newSize -> JSON in
@@ -34,13 +34,12 @@ class Photo: Object {
         self.someURL = URL(string: biggestSize["url"].stringValue)
     }
     
-    convenience init(_ json: [JSON]) {
-            self.init()
-            if !json.isEmpty {
-            self.photo = json[0]["photo"]["photo_604"].stringValue
-
-            }
-    }
+//    convenience init(with json: [JSON]) {
+//            self.init()
+//            if !json.isEmpty {
+//            self.photo = json[0]["photo"]["photo_604"].stringValue
+//            }
+//    }
     
     override static func primaryKey()-> String? {
         return "url"
