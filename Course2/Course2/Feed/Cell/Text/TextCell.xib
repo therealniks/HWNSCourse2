@@ -16,24 +16,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="629" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEp-XV-8GA">
-                        <rect key="frame" x="20" y="18" width="596" height="109"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEp-XV-8GA">
+                        <rect key="frame" x="20" y="4" width="609" height="136"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="sEp-XV-8GA" secondAttribute="trailing" constant="13" id="BBy-BR-7Vf"/>
+                    <constraint firstAttribute="trailing" secondItem="sEp-XV-8GA" secondAttribute="trailing" id="BBy-BR-7Vf"/>
                     <constraint firstItem="sEp-XV-8GA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZzH-pc-hdw"/>
                     <constraint firstItem="sEp-XV-8GA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="gl4-2e-OgX"/>
+                    <constraint firstItem="sEp-XV-8GA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="spd-jv-MSm"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="feedText" destination="sEp-XV-8GA" id="vQr-gc-Afl"/>
             </connections>
-            <point key="canvasLocation" x="174.63768115942031" y="-46.205357142857139"/>
+            <point key="canvasLocation" x="178" y="-41"/>
         </tableViewCell>
     </objects>
 </document>

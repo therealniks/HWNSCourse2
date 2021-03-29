@@ -92,14 +92,26 @@ class NetworkService{
             }
     }
 
-func getFeed(_ completion: @escaping ([Feed], [Friend], [Groups]) -> Void){
+func getFeed(
+    startTime: Double? = nil,
+    startFrom: String? = nil,
+    _ completion: @escaping ([Feed], [Friend], [Groups], String) -> Void){
     let path = "/method/newsfeed.get"
-    let parametrs : Parameters = [
-        "v" : "5.60",
+    var parametrs : Parameters = [
+        "v" : "5.126",
         "access_token": UserSession.instance.token,
         "filter" : "posts",
-        "count" : "100"
+        "count" : "10"
     ]
+    if let startTime = startTime {
+        parametrs["start_time"] = startTime
+    }
+    
+    if let startFrom = startFrom {
+        parametrs["start_from"] = startFrom
+    }
+    
+    
     AF.request(host + path,
                method: .get,
                parameters: parametrs)
@@ -110,10 +122,11 @@ func getFeed(_ completion: @escaping ([Feed], [Friend], [Groups]) -> Void){
                 let newsJSON = json["response"]["items"].arrayValue
                 let newsProfileJSON = json["response"]["profiles"].arrayValue
                 let newsGroupsJSON = json["response"]["groups"].arrayValue
+                let nextFrom = json["response"]["next_from"].stringValue
                 let feed = newsJSON.compactMap{Feed($0)}
                 let newsProfiles = newsProfileJSON.compactMap{Friend($0)}
                 let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
-                completion(feed, newsProfiles, newsGroups)
+                completion(feed, newsProfiles, newsGroups, nextFrom)
             case .failure(let error):
                 print(error)
             }
