@@ -31,16 +31,10 @@ class Photo: Object {
         self.ownerID = ownerID
         self.url = biggestSize["url"].stringValue
         self.likes = json["likes"]["count"].intValue
-        self.someURL = URL(string: biggestSize["url"].stringValue)
+        self.someURL = URL(string: url)
     }
     
-//    convenience init(with json: [JSON]) {
-//            self.init()
-//            if !json.isEmpty {
-//            self.photo = json[0]["photo"]["photo_604"].stringValue
-//            }
-//    }
-    
+
     override static func primaryKey()-> String? {
         return "url"
     }

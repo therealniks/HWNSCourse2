@@ -17,7 +17,6 @@
 		8066B5BF25814CA600F294B7 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */; };
 		8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */; };
 		80869406258FA639009F13ED /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80869405258FA639009F13ED /* Feed.swift */; };
-		8090146625B8A13C00D524BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090146525B8A13C00D524BD /* Friends.swift */; };
 		8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328D2577F6960096D5D4 /* AppDelegate.swift */; };
 		809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328F2577F6960096D5D4 /* SceneDelegate.swift */; };
 		809732922577F6960096D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732912577F6960096D5D4 /* ViewController.swift */; };
@@ -27,6 +26,7 @@
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
 		80A77FFB26074A9F00FB642D /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A77FF926074A9F00FB642D /* TextCell.swift */; };
 		80A77FFC26074A9F00FB642D /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A77FFA26074A9F00FB642D /* TextCell.xib */; };
+		80AE880C261648DF00AEB846 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE880B261648DF00AEB846 /* Friend.swift */; };
 		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
 		80C2910B260273C70026E532 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2910A260273C70026E532 /* PhotoService.swift */; };
 		80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2F3BC25B5F53200B387AD /* Requests.swift */; };
@@ -63,7 +63,6 @@
 		8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
 		80869405258FA639009F13ED /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		8090146525B8A13C00D524BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		8097328A2577F6950096D5D4 /* Course2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Course2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8097328D2577F6960096D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8097328F2577F6960096D5D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80A77FF926074A9F00FB642D /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		80A77FFA26074A9F00FB642D /* TextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
+		80AE880B261648DF00AEB846 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		80C2910A260273C70026E532 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		80C2F3BC25B5F53200B387AD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
@@ -178,9 +178,9 @@
 			children = (
 				80869405258FA639009F13ED /* Feed.swift */,
 				802EE8F725AF59270048D8CD /* UserSession.swift */,
-				8090146525B8A13C00D524BD /* Friends.swift */,
 				80414E2825B9E393007E83EF /* Groups.swift */,
 				801832EA25BC37B000488E3F /* Photo.swift */,
+				80AE880B261648DF00AEB846 /* Friend.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,11 +440,11 @@
 				802EE8F825AF59270048D8CD /* UserSession.swift in Sources */,
 				80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */,
 				80F1CA2D258F952600F94577 /* FeedTableViewController.swift in Sources */,
-				8090146625B8A13C00D524BD /* Friends.swift in Sources */,
 				80EC8F4025AEF5B6002D018E /* InteractiveManager.swift in Sources */,
 				80FC2A8425EFFF960002324C /* HeaderCell.swift in Sources */,
 				8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */,
 				8066374B2589287B00A75A8D /* AvatarView.swift in Sources */,
+				80AE880C261648DF00AEB846 /* Friend.swift in Sources */,
 				80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */,
 				809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */,
 				80F2497C25988AF5002D5018 /* LoginViewAnimation.swift in Sources */,

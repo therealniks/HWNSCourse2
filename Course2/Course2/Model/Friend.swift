@@ -20,7 +20,7 @@ class Friend: Object {
         self.lastName = json["last_name"].stringValue
         self.icon = json["photo_100"].stringValue
     }
-    let photos = List<Photo>()    
+    let photos = List<Photo>()
     override static func primaryKey()-> String? {
         return "id"
     }

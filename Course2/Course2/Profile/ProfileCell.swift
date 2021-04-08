@@ -13,7 +13,7 @@ class ProfileCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        return imageView //as! ScaleImage
+        return imageView 
     }()
     
     var likeControl =  LikeControl()
@@ -22,9 +22,9 @@ class ProfileCell: UICollectionViewCell {
         friendPhotoImageView.image = nil
         setNeedsLayout()
     }
-    let intsets:CGFloat = 10.0
+    let intsets:CGFloat = 20.0
     func getImageSize()-> CGSize{
-        return CGSize(width: 200.0, height: 200.0)
+        return CGSize(width: bounds.width, height: 450.0)
     }
     func getLikeControlSize()->CGSize{
         return CGSize(width: 100.0, height: 50.0)
@@ -32,7 +32,7 @@ class ProfileCell: UICollectionViewCell {
     func imageFrame(){
         let imageSize = getImageSize()
         let imageX = (bounds.width - imageSize.width)/2
-        let imageY = intsets
+        let imageY = (bounds.height - imageSize.height)/2 - 3*intsets
         let imageOrigin = CGPoint(x: imageX, y: imageY)
         friendPhotoImageView.frame = CGRect(origin: imageOrigin, size: imageSize)
     }
@@ -70,9 +70,10 @@ class ProfileCell: UICollectionViewCell {
         likeControl.likeCount = photo.likes
     }
     
+
+    
     func downloadImage(imageURL: URL?) {
         guard let imageURL = imageURL else { return }
-        DispatchQueue.global().async {
             do {
                 let imageData = try Data(contentsOf: imageURL)
                 DispatchQueue.main.sync {
@@ -81,11 +82,6 @@ class ProfileCell: UICollectionViewCell {
             } catch {
                 print(error)
             }
-        }
-        
     }
-    
-    
-    
 }
 
