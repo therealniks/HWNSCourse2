@@ -10,10 +10,11 @@ import Kingfisher
 import RealmSwift
 
 private let reuseIdentifier = "Cell"
-var networkService = NetworkService()
+var photoAdapter = PhotoAdapter()
+
 class ProfileCollectionController: UICollectionViewController {
     
-    var usersPhotos: Results<Photo>?
+    var usersPhotos: [Photo]?
     var notificationToken: NotificationToken?
     var id : Int = 0
     // MARK: UICollectionViewDataSource
@@ -27,49 +28,16 @@ class ProfileCollectionController: UICollectionViewController {
             as? ProfileCell
         guard let userPhoto = usersPhotos?[indexPath.row] else { return UICollectionViewCell() }
         cell?.configure(with: userPhoto)
-        //cell?.friendPhotoImageView.kf.setImage(with: URL(string: userPhoto.url))
-        //cell?.likeControl.likeCount = userPhoto.likes
         return cell!
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.getPhotos(for: id)
-        maketUserPhotos()
-            
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        makeNotificationToken()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        notificationToken?.invalidate()
-    }
-    
-    private func maketUserPhotos() {
-        do {
-            usersPhotos = try RealmProvider
-                .get(Photo.self)
-                .filter("ownerID == %@", id)
-        } catch {
-            print(error)
+        photoAdapter.getPhotos(for: id){ [weak self] photos in
+            self?.usersPhotos = photos
+            print(photos.count)
+            self?.collectionView.reloadData()
         }
-    }
-    
-    private func makeNotificationToken() {
-        notificationToken = usersPhotos?.observe({ [weak self] changes in
-            guard let self = self else { return }
-            switch changes {
-            case .initial:
-                self.collectionView.reloadData()
-            case .update:
-                self.collectionView.reloadData()
-            case .error(let error):
-                print(error)
-            }
-        })
     }
 }
 

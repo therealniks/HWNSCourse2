@@ -65,7 +65,7 @@ class ProfileCell: UICollectionViewCell {
     
     func configure(with photo:Photo?){
         guard let photo = photo else {return}
-        let url = URL(string: photo.url)
+        let url = photo.someURL
         friendPhotoImageView.kf.setImage(with: url)
         likeControl.likeCount = photo.likes
     }

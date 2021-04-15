@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,19 +30,16 @@
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ProfileCell" id="TtV-Iv-got" customClass="ProfileCell" customModule="Course2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="30.666666666666668" width="414" height="582"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2ql-sw-mRO">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="582"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
+                                </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <size key="customSize" width="414" height="582"/>
                             </collectionViewCell>
                         </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="bb3-CO-EJK" id="nRg-p0-aSS"/>
-                            <outlet property="delegate" destination="bb3-CO-EJK" id="Keq-Rh-Bgj"/>
-                        </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Clv-ER-fnh">
                         <nil key="title"/>
@@ -107,14 +103,12 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7R-oO-eMO">
                                             <rect key="frame" x="133" y="29.666666666666664" width="52" height="26.666666666666664"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-5G-Mu7" customClass="FriendAvatarImageView" customModule="Course2" customModuleProvider="target">
                                             <rect key="frame" x="27" y="5" width="75" height="75"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75" id="cHk-Zz-5Yx"/>
                                                 <constraint firstAttribute="width" constant="75" id="dRw-9Y-Ikn"/>
@@ -129,7 +123,6 @@
                                         <constraint firstItem="YYr-5G-Mu7" firstAttribute="top" secondItem="Bx0-Ul-pZq" secondAttribute="top" constant="5" id="lzY-SL-3yP"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="MyGroupAvatar" destination="YYr-5G-Mu7" id="220-xa-BpA"/>
                                     <outlet property="MyGroupTitle" destination="h7R-oO-eMO" id="aGl-tC-33l"/>
@@ -240,8 +233,6 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" translucent="NO" id="Fjo-ra-6QV">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
                                 <string>Title</string>
@@ -261,7 +252,6 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwa-hR-b5v" customClass="AvatarView" customModule="Course2" customModuleProvider="target">
                                             <rect key="frame" x="20" y="5" width="74" height="74"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="74" id="XDh-Xd-tEk"/>
                                                 <constraint firstAttribute="width" constant="74" id="eWq-wG-Azr"/>
@@ -283,13 +273,11 @@
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FriendID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UG-yg-Nb4">
                                             <rect key="frame" x="126" y="29.333333333333336" width="238" height="26.333333333333336"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="6UG-yg-Nb4" secondAttribute="trailing" constant="50" id="G4A-80-9fE"/>
                                         <constraint firstItem="6UG-yg-Nb4" firstAttribute="leading" secondItem="t4R-1g-1Kp" secondAttribute="leading" constant="126" id="NFb-z4-PnK"/>

@@ -123,13 +123,13 @@ class FeedTableViewController: UITableViewController {
         case 1:
             let text = feed[indexPath.section].text
             let textSize = getLabelSize(text: text,
-                                        font: UIFont.systemFont(ofSize: 17.0),
+                                        font: UIFont.vkFont,
                                         maxWidth: tableView.bounds.width)
             let expanded = expandedCells[indexPath] ?? false
             if expanded {
-                return textSize.height + 8
+                return textSize.height + 24
             } else {
-                return min(textSize.height, 200)
+                return min(textSize.height + 16, 200)
             }
         case 2:
             let tableWidth = tableView.bounds.width

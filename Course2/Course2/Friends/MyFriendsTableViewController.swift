@@ -12,8 +12,8 @@ import RealmSwift
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
 var networkService = NetworkService()
 
-    var myFriends = [Friend]()
-    private var filtredFriends = [Character : [Friend]]()
+    var myFriends = [RealmFriend]()
+    private var filtredFriends = [Character : [RealmFriend]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
     

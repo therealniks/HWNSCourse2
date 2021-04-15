@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="528" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISF-Eu-Abp">
-                        <rect key="frame" x="386" y="34" width="110" height="22"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISF-Eu-Abp">
+                        <rect key="frame" x="352.5" y="35" width="110" height="22"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                         <state key="normal" title="Comments" image="message" catalog="system">
@@ -44,10 +44,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="IJ1-gL-4Ld" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1Mv-k8-V5b"/>
-                    <constraint firstItem="ISF-Eu-Abp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HUU-cA-Mfe"/>
+                    <constraint firstItem="ISF-Eu-Abp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XOB-sd-VdK"/>
                     <constraint firstItem="UhD-Xz-0aW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Xet-ed-qmR"/>
                     <constraint firstItem="IJ1-gL-4Ld" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ctG-9b-YkT"/>
-                    <constraint firstItem="ISF-Eu-Abp" firstAttribute="leading" secondItem="IJ1-gL-4Ld" secondAttribute="trailing" constant="50" id="ez3-A8-vn9"/>
+                    <constraint firstItem="ISF-Eu-Abp" firstAttribute="leading" secondItem="IJ1-gL-4Ld" secondAttribute="trailing" constant="50" id="gIy-K1-cA1"/>
                     <constraint firstItem="IJ1-gL-4Ld" firstAttribute="leading" secondItem="UhD-Xz-0aW" secondAttribute="trailing" constant="50" id="xWr-fl-DYE"/>
                 </constraints>
             </tableViewCellContentView>

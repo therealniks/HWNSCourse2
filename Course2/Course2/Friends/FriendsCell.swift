@@ -21,7 +21,7 @@ class FriendsCell: UITableViewCell {
     }
     
     
-    func configure(with friend: Friend){
+    func configure(with friend: RealmFriend){
         let url = URL(string:friend.icon)
         self.friendAvatar.photoImage.kf.setImage(with: url)
         let firstName = friend.firstName

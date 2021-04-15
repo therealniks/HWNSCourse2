@@ -13,7 +13,7 @@ class NetworkService{
     var realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded : true))
     private let host = "https://api.vk.com"
     
-    func getFriends(for id: Int, completion: @escaping ([Friend])->Void){
+    func getFriends(for id: Int, completion: @escaping ([RealmFriend])->Void){
         let path = "/method/friends.get"
         let parametrs : Parameters = [
             "user_id" : UserSession.instance.id,
@@ -31,9 +31,10 @@ class NetworkService{
                         case .success(let data):
                             let json = JSON(data)
                             let friendsJSONs = json["response"]["items"].arrayValue
-                            let myFriends = friendsJSONs.compactMap { Friend($0) }
+                            let myFriends = friendsJSONs.compactMap { RealmFriend($0) }
                             DispatchQueue.main.async{
                                 completion(myFriends)
+                                try? RealmProvider.save(items: myFriends)
                             }
                         case .failure(let error):
                             print(error)
@@ -63,6 +64,7 @@ class NetworkService{
                     let myGroups = friendsJSONs.compactMap { Groups($0) }
                     DispatchQueue.main.async{
                         completion(myGroups)
+                        try? RealmProvider.save(items: myGroups)
                     }
                 case .failure(let error):
                     print(error)
@@ -86,7 +88,7 @@ class NetworkService{
                 case .success(let data):
                     let json = JSON(data)
                     let photosJSONs = json["response"]["items"].arrayValue
-                    let photos = photosJSONs.compactMap { Photo($0, ownerID: id) }
+                    let photos = photosJSONs.compactMap { RealmPhoto($0, ownerID: id) }
                     try? RealmProvider.save(items: photos)
                 case .failure(let error):
                     print(error)
@@ -97,7 +99,7 @@ class NetworkService{
 func getFeed(
     startTime: Double? = nil,
     startFrom: String? = nil,
-    _ completion: @escaping ([Feed], [Friend], [Groups], String) -> Void){
+    _ completion: @escaping ([Feed], [RealmFriend], [Groups], String) -> Void){
     let path = "/method/newsfeed.get"
     var parametrs : Parameters = [
         "v" : "5.126",
@@ -126,7 +128,7 @@ func getFeed(
                 let newsGroupsJSON = json["response"]["groups"].arrayValue
                 let nextFrom = json["response"]["next_from"].stringValue
                 let feed = newsJSON.compactMap{Feed($0)}
-                let newsProfiles = newsProfileJSON.compactMap{Friend($0)}
+                let newsProfiles = newsProfileJSON.compactMap{RealmFriend($0)}
                 let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
                 DispatchQueue.main.async {
                     completion(feed, newsProfiles, newsGroups, nextFrom)

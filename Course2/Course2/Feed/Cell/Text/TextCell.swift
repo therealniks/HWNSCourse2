@@ -19,6 +19,7 @@ class TextCell: UITableViewCell {
     }
     @IBOutlet weak var feedText : UILabel!
     
+    
     weak var delegate: AnyTextCell?
     var indexPath = IndexPath()
     

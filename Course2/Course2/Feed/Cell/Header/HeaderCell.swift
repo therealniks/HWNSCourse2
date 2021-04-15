@@ -22,13 +22,10 @@ class HeaderCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -47,7 +44,7 @@ class HeaderCell: UITableViewCell {
         let date = Date(timeIntervalSince1970: TimeInterval(feed!.authorDate))
         if sourceID > 0 {
             guard 
-                  let source = try? Realm().objects(Friend.self).filter("id == %@", sourceID),
+                  let source = try? Realm().objects(RealmFriend.self).filter("id == %@", sourceID),
                   let friend = source.first
                   else {return}
             photoURL = friend.icon
