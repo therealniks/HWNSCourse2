@@ -19,7 +19,6 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISF-Eu-Abp">
                         <rect key="frame" x="386" y="34" width="110" height="22"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                         <state key="normal" title="Comments" image="message" catalog="system">
                             <color key="titleColor" systemColor="secondaryLabelColor"/>
@@ -27,7 +26,6 @@
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-Xz-0aW" customClass="LikeControl" customModule="Course2" customModuleProvider="target">
                         <rect key="frame" x="100.5" y="21" width="75" height="50"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="2p6-ZV-VzZ"/>
                             <constraint firstAttribute="width" constant="75" id="8rj-61-v4D"/>
@@ -35,8 +33,6 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-gL-4Ld">
                         <rect key="frame" x="225.5" y="35" width="77" height="22"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" systemColor="secondaryLabelColor"/>
                         <state key="normal" title="Shares" image="arrowshape.turn.up.right" catalog="system">
                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                         </state>

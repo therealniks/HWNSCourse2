@@ -33,6 +33,7 @@ class NetworkService{
                             let friendsJSONs = json["response"]["items"].arrayValue
                             let myFriends = friendsJSONs.compactMap { Friend($0) }
                             DispatchQueue.main.async{
+                                try? RealmProvider.save(items: myFriends)
                                 completion(myFriends)
                             }
                         case .failure(let error):
@@ -62,6 +63,7 @@ class NetworkService{
                     let friendsJSONs = json["response"]["items"].arrayValue
                     let myGroups = friendsJSONs.compactMap { Groups($0) }
                     DispatchQueue.main.async{
+                        try? RealmProvider.save(items: myGroups)
                         completion(myGroups)
                     }
                 case .failure(let error):

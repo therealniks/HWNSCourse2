@@ -27,8 +27,6 @@ class ProfileCollectionController: UICollectionViewController {
             as? ProfileCell
         guard let userPhoto = usersPhotos?[indexPath.row] else { return UICollectionViewCell() }
         cell?.configure(with: userPhoto)
-        //cell?.friendPhotoImageView.kf.setImage(with: URL(string: userPhoto.url))
-        //cell?.likeControl.likeCount = userPhoto.likes
         return cell!
         }
     
@@ -42,6 +40,8 @@ class ProfileCollectionController: UICollectionViewController {
         super.viewDidAppear(animated)
         makeNotificationToken()
     }
+    
+    
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)

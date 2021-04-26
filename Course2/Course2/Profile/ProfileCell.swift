@@ -22,11 +22,11 @@ class ProfileCell: UICollectionViewCell {
         friendPhotoImageView.image = nil
         setNeedsLayout()
     }
-    let intsets:CGFloat = 20.0
+    let intsets: CGFloat = 20.0
     func getImageSize()-> CGSize{
-        return CGSize(width: bounds.width, height: 450.0)
+        return CGSize(width: frame.width, height: 450.0)
     }
-    func getLikeControlSize()->CGSize{
+    func getLikeControlSize() -> CGSize{
         return CGSize(width: 100.0, height: 50.0)
     }
     func imageFrame(){
@@ -47,6 +47,7 @@ class ProfileCell: UICollectionViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         imageFrame()
         likeControlFrame()
     }
