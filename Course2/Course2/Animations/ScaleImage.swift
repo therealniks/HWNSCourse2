@@ -46,8 +46,6 @@ class ScaleImage: UIImageView {
         return tmpImageView
     }
     
-
-    
     @objc func showFullscreen() {
         
         let window = UIApplication.shared.windows.first!

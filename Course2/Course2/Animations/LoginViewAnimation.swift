@@ -44,7 +44,6 @@ class LoginAnimation: UIView {
         }
     }
         
-    
     override func layoutSubviews() {
         super.layoutSubviews()
     }

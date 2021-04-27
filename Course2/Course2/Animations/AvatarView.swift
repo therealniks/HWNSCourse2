@@ -37,5 +37,3 @@ class AvatarView: UIImageView {
         }
         
     }
-
-

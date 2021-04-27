@@ -18,6 +18,4 @@ class FriendsCell: UITableViewCell {
         friendID.text = ""
         friendAvatar.image = nil
     }
-    
-
 }

@@ -13,14 +13,6 @@ class FeedTableViewController: UITableViewController {
     lazy var feed = networkService.realm.objects(Feed.self)
 
     var token : NotificationToken?
-        
-//        [Feed]? {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//        
-//    }
-    
     func notification(){
             token = feed.observe({ (changes: RealmCollectionChange) in
                 switch changes{
@@ -34,7 +26,6 @@ class FeedTableViewController: UITableViewController {
             })
         }
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(HeaderCell.nib,
@@ -43,16 +34,11 @@ class FeedTableViewController: UITableViewController {
                                 forCellReuseIdentifier: BodyCell.reuseIdentifier)
         self.tableView.register(FooterCell.nib,
                                 forCellReuseIdentifier: FooterCell.reuseIdentifier)
-        
-        
         DispatchQueue.global().async(flags: .barrier){
             self.networkService.getFeed {feed, newsProfiles , newsGroups  in
                 self.loadFeed()
                 try? RealmProvider.save(items: feed)
-                //try? RealmProvider.save(items: newsProfiles)
-                //try? RealmProvider.save(items: newsGroups)
             }
-            
         }
     }
     
@@ -61,8 +47,6 @@ class FeedTableViewController: UITableViewController {
         self.notification()
     }
     
-    
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,12 +57,8 @@ class FeedTableViewController: UITableViewController {
        3
     }
     
-    
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-                
         switch indexPath.row{
         case 0:
             //guard
@@ -107,8 +87,7 @@ class FeedTableViewController: UITableViewController {
         }
     
     }
-    
-    
+        
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -132,10 +111,5 @@ class FeedTableViewController: UITableViewController {
             }catch{
                 print ( error)
             }
-        
     }
-            
 }
-
-
-

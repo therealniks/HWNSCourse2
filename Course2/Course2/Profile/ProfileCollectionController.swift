@@ -71,4 +71,3 @@ class ProfileCollectionController: UICollectionViewController {
         })
     }
 }
-

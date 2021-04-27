@@ -23,9 +23,6 @@ class AllGroupsTableViewController: UITableViewController {
             }
     }
     
-    
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myAllGroups.count
     }
@@ -39,11 +36,9 @@ class AllGroupsTableViewController: UITableViewController {
         return cell
     }
     
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 
     private func loadGroupsData(for id: Int){
         do {

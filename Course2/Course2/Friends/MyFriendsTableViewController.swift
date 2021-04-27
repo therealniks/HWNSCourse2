@@ -19,9 +19,7 @@ var networkService = NetworkService()
     var filtredFriends = [Character : [Friends]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
-    
 
-    
     func notification(){
             token = myFriends.observe({ (changes: RealmCollectionChange) in
                 switch changes{
@@ -34,7 +32,6 @@ var networkService = NetworkService()
                 }
             })
         }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +61,6 @@ var networkService = NetworkService()
         return cell
     }
 
-
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! FriendsCell
         let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -83,9 +78,6 @@ var networkService = NetworkService()
         })
     }
 }
-
-
-
 
 extension MyFriendsTableViewController {
     

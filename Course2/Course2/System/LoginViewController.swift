@@ -11,8 +11,6 @@ import WebKit
 class LoginViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
-
-    
     override func viewDidLoad() {
             super.viewDidLoad()
         var urlComponents = URLComponents()
@@ -66,5 +64,3 @@ extension LoginViewController {
         decisionHandler(.cancel)
     }
 }
-    
-

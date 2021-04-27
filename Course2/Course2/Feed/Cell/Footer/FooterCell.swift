@@ -14,7 +14,6 @@ class FooterCell: UITableViewCell {
                      bundle: nil)
         
     }
-    
     @IBOutlet weak var likesControl: LikeControl!
     @IBOutlet weak var sharesButton: UIButton!
     @IBOutlet weak var commentsButton: UIButton!

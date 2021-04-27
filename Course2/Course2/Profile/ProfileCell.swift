@@ -16,9 +16,6 @@ class ProfileCell: UICollectionViewCell {
         image.image = nil
     }
 
-    
-
-    
     func downloadImage(imageURL: URL?) {
         guard let imageURL = imageURL else { return }
         DispatchQueue.global().async {
@@ -31,7 +28,5 @@ class ProfileCell: UICollectionViewCell {
                 print(error)
             }
         }
-        
     }
 }
-

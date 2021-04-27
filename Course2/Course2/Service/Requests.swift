@@ -41,8 +41,6 @@ class NetworkService{
     }
  }
         
-        
-    
    func getGroups(for id: Int, completion: @escaping ()->Void){
         let path = "/method/groups.get"
         let parametrs : Parameters = [
@@ -120,5 +118,3 @@ func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
         }
 }
 }
-    
-

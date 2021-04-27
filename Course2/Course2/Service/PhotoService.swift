@@ -38,6 +38,4 @@ class PhotoService{
         else{return}
         FileManager.default.createFile(atPath: fileName, contents: data)
     }
-    
-    
 }

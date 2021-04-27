@@ -68,7 +68,4 @@ class HeaderCell: UITableViewCell {
         feedText.text = feed?.text
         
     }
-    
-    
-    
 }
