@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		801832EB25BC37B000488E3F /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801832EA25BC37B000488E3F /* Photos.swift */; };
+		801832EB25BC37B000488E3F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801832EA25BC37B000488E3F /* Photo.swift */; };
 		802A1E58259BB2D80090FCF5 /* ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A1E57259BB2D80090FCF5 /* ScaleImage.swift */; };
 		802EE8F825AF59270048D8CD /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE8F725AF59270048D8CD /* UserSession.swift */; };
 		80414E2925B9E393007E83EF /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80414E2825B9E393007E83EF /* Groups.swift */; };
@@ -17,7 +17,6 @@
 		8066B5BF25814CA600F294B7 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */; };
 		8066B5C225814CBF00F294B7 /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */; };
 		80869406258FA639009F13ED /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80869405258FA639009F13ED /* Feed.swift */; };
-		8090146625B8A13C00D524BD /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090146525B8A13C00D524BD /* Friends.swift */; };
 		8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328D2577F6960096D5D4 /* AppDelegate.swift */; };
 		809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8097328F2577F6960096D5D4 /* SceneDelegate.swift */; };
 		809732922577F6960096D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732912577F6960096D5D4 /* ViewController.swift */; };
@@ -25,6 +24,9 @@
 		809732972577F6960096D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809732962577F6960096D5D4 /* Assets.xcassets */; };
 		8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809732982577F6960096D5D4 /* LaunchScreen.storyboard */; };
 		809732A32577F75E0096D5D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809732A22577F75E0096D5D4 /* LoginViewController.swift */; };
+		80A77FFB26074A9F00FB642D /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A77FF926074A9F00FB642D /* TextCell.swift */; };
+		80A77FFC26074A9F00FB642D /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A77FFA26074A9F00FB642D /* TextCell.xib */; };
+		80AE880C261648DF00AEB846 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE880B261648DF00AEB846 /* Friend.swift */; };
 		80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF35DC258E5661007CB04E /* LikeControl.swift */; };
 		80C2910B260273C70026E532 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2910A260273C70026E532 /* PhotoService.swift */; };
 		80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2F3BC25B5F53200B387AD /* Requests.swift */; };
@@ -51,7 +53,7 @@
 /* Begin PBXFileReference section */
 		65FDD6969E6501C6D2804BA9 /* Pods_Course2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Course2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F30404D559632CD92931C00 /* Pods-Course2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Course2.debug.xcconfig"; path = "Target Support Files/Pods-Course2/Pods-Course2.debug.xcconfig"; sourceTree = "<group>"; };
-		801832EA25BC37B000488E3F /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		801832EA25BC37B000488E3F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		802A1E57259BB2D80090FCF5 /* ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale\U0010Image.swift"; sourceTree = "<group>"; };
 		802EE8F725AF59270048D8CD /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		80414E2825B9E393007E83EF /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
@@ -61,7 +63,6 @@
 		8066B5BE25814CA600F294B7 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		8066B5C125814CBF00F294B7 /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
 		80869405258FA639009F13ED /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		8090146525B8A13C00D524BD /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		8097328A2577F6950096D5D4 /* Course2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Course2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8097328D2577F6960096D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8097328F2577F6960096D5D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +72,9 @@
 		809732992577F6960096D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8097329B2577F6960096D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809732A22577F75E0096D5D4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		80A77FF926074A9F00FB642D /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		80A77FFA26074A9F00FB642D /* TextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
+		80AE880B261648DF00AEB846 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		80AF35DC258E5661007CB04E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		80C2910A260273C70026E532 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		80C2F3BC25B5F53200B387AD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				80FC2A8725EFFFA70002324C /* Header */,
+				80A77FF826074A7500FB642D /* Text */,
 				80FC2A8925EFFFB50002324C /* Body */,
 				80FC2A8A25EFFFBA0002324C /* Footer */,
 			);
@@ -173,9 +178,9 @@
 			children = (
 				80869405258FA639009F13ED /* Feed.swift */,
 				802EE8F725AF59270048D8CD /* UserSession.swift */,
-				8090146525B8A13C00D524BD /* Friends.swift */,
 				80414E2825B9E393007E83EF /* Groups.swift */,
-				801832EA25BC37B000488E3F /* Photos.swift */,
+				801832EA25BC37B000488E3F /* Photo.swift */,
+				80AE880B261648DF00AEB846 /* Friend.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -226,6 +231,15 @@
 				8010A41A25B60B040038E467 /* Service */,
 			);
 			path = Course2;
+			sourceTree = "<group>";
+		};
+		80A77FF826074A7500FB642D /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				80A77FF926074A9F00FB642D /* TextCell.swift */,
+				80A77FFA26074A9F00FB642D /* TextCell.xib */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		80AF35DB258E5642007CB04E /* Profile */ = {
@@ -354,6 +368,7 @@
 				8097329A2577F6960096D5D4 /* LaunchScreen.storyboard in Resources */,
 				80FC2A9325F000270002324C /* FooterCell.xib in Resources */,
 				809732972577F6960096D5D4 /* Assets.xcassets in Resources */,
+				80A77FFC26074A9F00FB642D /* TextCell.xib in Resources */,
 				80FC2A8E25F000160002324C /* BodyCell.xib in Resources */,
 				809732952577F6960096D5D4 /* Main.storyboard in Resources */,
 			);
@@ -418,17 +433,18 @@
 				80E056A725D2A39500945C9E /* RealmProvider.swift in Sources */,
 				80C2910B260273C70026E532 /* PhotoService.swift in Sources */,
 				80FC2A8D25F000160002324C /* BodyCell.swift in Sources */,
+				80A77FFB26074A9F00FB642D /* TextCell.swift in Sources */,
 				80F50B33258128B8005D5261 /* FriendsCell.swift in Sources */,
 				809732922577F6960096D5D4 /* ViewController.swift in Sources */,
 				8097328E2577F6960096D5D4 /* AppDelegate.swift in Sources */,
 				802EE8F825AF59270048D8CD /* UserSession.swift in Sources */,
 				80C2F3BD25B5F53200B387AD /* Requests.swift in Sources */,
 				80F1CA2D258F952600F94577 /* FeedTableViewController.swift in Sources */,
-				8090146625B8A13C00D524BD /* Friends.swift in Sources */,
 				80EC8F4025AEF5B6002D018E /* InteractiveManager.swift in Sources */,
 				80FC2A8425EFFF960002324C /* HeaderCell.swift in Sources */,
 				8066B5AF2581475000F294B7 /* AllGroupsTableViewController.swift in Sources */,
 				8066374B2589287B00A75A8D /* AvatarView.swift in Sources */,
+				80AE880C261648DF00AEB846 /* Friend.swift in Sources */,
 				80F50B4325813CA5005D5261 /* ProfileCell.swift in Sources */,
 				809732902577F6960096D5D4 /* SceneDelegate.swift in Sources */,
 				80F2497C25988AF5002D5018 /* LoginViewAnimation.swift in Sources */,
@@ -436,7 +452,7 @@
 				80F50B3725812D1B005D5261 /* MyFriendsTableViewController.swift in Sources */,
 				8066B5BB2581495E00F294B7 /* AllGroupsCell.swift in Sources */,
 				80FC2A9225F000270002324C /* FooterCell.swift in Sources */,
-				801832EB25BC37B000488E3F /* Photos.swift in Sources */,
+				801832EB25BC37B000488E3F /* Photo.swift in Sources */,
 				80AF35DD258E5661007CB04E /* LikeControl.swift in Sources */,
 				80EC8F4725AEF61C002D018E /* PushAnimator.swift in Sources */,
 				80EC8F4425AEF610002D018E /* PopAnimator.swift in Sources */,

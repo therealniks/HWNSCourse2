@@ -42,5 +42,4 @@ class FooterCell: UITableViewCell {
         self.commentsButton.setTitle("\(feed.commentsCount)", for: .normal)
         self.sharesButton.setTitle("\(feed.sharesCount)", for: .normal)
     }
-    
 }

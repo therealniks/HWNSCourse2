@@ -12,7 +12,6 @@ class BodyCell: UITableViewCell {
     static var nib: UINib {
         return UINib(nibName: String(describing: self),
                      bundle: nil)
-        
     }
     
     @IBOutlet weak var feedImage: UIImageView!
@@ -32,7 +31,10 @@ class BodyCell: UITableViewCell {
         self.feedImage.image = nil
     }
  
-    func configure(with feed: Feed) {
-        self.feedImage.image = UIImage(named: "avatar")
+    func configure(with feed: Feed, by photoService:PhotoService) {
+        let url = feed.feedPhotoURL
+        photoService.photo(url: url) {[weak self] image in
+                    self?.feedImage.image = image
+                }
+            }
     }
-}

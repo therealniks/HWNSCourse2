@@ -18,7 +18,7 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var feedAuthor: UILabel!
     @IBOutlet weak var feedAuthorImage : FriendAvatarImageView!
     @IBOutlet weak var feedAuthorTime : UILabel!
-    @IBOutlet weak var feedText : UILabel!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +36,6 @@ class HeaderCell: UITableViewCell {
         self.feedAuthor.text = nil
         self.feedAuthorImage.image = nil
         self.feedAuthorTime.text = nil
-        self.feedText.text = nil
     }
     func configure(with feed: Feed?) {
         guard var sourceID = feed?.sourceID else {return}
@@ -48,7 +47,7 @@ class HeaderCell: UITableViewCell {
         let date = Date(timeIntervalSince1970: TimeInterval(feed!.authorDate))
         if sourceID > 0 {
             guard 
-                  let source = try? Realm().objects(Friends.self).filter("id == %@", sourceID),
+                  let source = try? Realm().objects(Friend.self).filter("id == %@", sourceID),
                   let friend = source.first
                   else {return}
             photoURL = friend.icon
@@ -65,7 +64,5 @@ class HeaderCell: UITableViewCell {
         feedAuthorImage.kf.setImage(with:URL(string: photoURL))
         feedAuthor.text = author
         feedAuthorTime.text = dateFormatter.string(from: date)
-        feedText.text = feed?.text
-        
     }
 }

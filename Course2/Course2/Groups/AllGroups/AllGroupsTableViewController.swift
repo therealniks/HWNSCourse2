@@ -10,14 +10,14 @@ import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
     var networkService = NetworkService()
-    lazy var myAllGroups = networkService.realm.objects(Groups.self)
+    var myAllGroups = [Groups]()
 
     // MARK: - Table view data source
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.getGroups(for: UserSession.instance.id){ [weak self] in
-            self?.loadGroupsData(for: UserSession.instance.id)
+        networkService.getGroups(for: UserSession.instance.id){ [weak self] myGroups in
+            self?.myAllGroups = myGroups
             self?.tableView.reloadData()
 
             }
@@ -36,18 +36,11 @@ class AllGroupsTableViewController: UITableViewController {
         return cell
     }
     
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    private func loadGroupsData(for id: Int){
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Groups.self)
-            self.myAllGroups = groups
-            }catch{
-                print ( error.localizedDescription)
-            }
-        
-        }
+
+ 
     }

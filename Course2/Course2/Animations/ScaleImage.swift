@@ -13,8 +13,6 @@ protocol ScaleImageDelegate: AnyObject {
 class ScaleImage: UIImageView {
     
     weak var delegate: ScaleImageDelegate?
-    var indexPathToUse: Int?
-    var usedIndexPath: Int?
     var fullscreenImageView: UIImageView?
 
     override init(frame: CGRect) {

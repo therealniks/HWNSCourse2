@@ -13,7 +13,7 @@ class NetworkService{
     var realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded : true))
     private let host = "https://api.vk.com"
     
-    func getFriends(for id: Int, completion: @escaping ()->Void){
+    func getFriends(for id: Int, completion: @escaping ([Friend])->Void){
         let path = "/method/friends.get"
         let parametrs : Parameters = [
             "user_id" : UserSession.instance.id,
@@ -31,9 +31,11 @@ class NetworkService{
                         case .success(let data):
                             let json = JSON(data)
                             let friendsJSONs = json["response"]["items"].arrayValue
-                            let myFriends = friendsJSONs.compactMap { Friends($0) }
-                            try? RealmProvider.save(items: myFriends)
-                            completion()
+                            let myFriends = friendsJSONs.compactMap { Friend($0) }
+                            DispatchQueue.main.async{
+                                try? RealmProvider.save(items: myFriends)
+                                completion(myFriends)
+                            }
                         case .failure(let error):
                             print(error)
             }
@@ -41,7 +43,9 @@ class NetworkService{
     }
  }
         
-   func getGroups(for id: Int, completion: @escaping ()->Void){
+        
+    
+   func getGroups(for id: Int, completion: @escaping ([Groups])->Void){
         let path = "/method/groups.get"
         let parametrs : Parameters = [
             "user_id" :     UserSession.instance.id,
@@ -58,8 +62,10 @@ class NetworkService{
                     let json = JSON(data)
                     let friendsJSONs = json["response"]["items"].arrayValue
                     let myGroups = friendsJSONs.compactMap { Groups($0) }
-                    try? RealmProvider.save(items: myGroups)
-                    completion()
+                    DispatchQueue.main.async{
+                        try? RealmProvider.save(items: myGroups)
+                        completion(myGroups)
+                    }
                 case .failure(let error):
                     print(error)
     }
@@ -82,7 +88,7 @@ class NetworkService{
                 case .success(let data):
                     let json = JSON(data)
                     let photosJSONs = json["response"]["items"].arrayValue
-                    let photos = photosJSONs.compactMap { Photos($0, id) }
+                    let photos = photosJSONs.compactMap { Photo($0, ownerID: id) }
                     try? RealmProvider.save(items: photos)
                 case .failure(let error):
                     print(error)
@@ -90,14 +96,26 @@ class NetworkService{
             }
     }
 
-func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
+func getFeed(
+    startTime: Double? = nil,
+    startFrom: String? = nil,
+    _ completion: @escaping ([Feed], [Friend], [Groups], String) -> Void){
     let path = "/method/newsfeed.get"
-    let parametrs : Parameters = [
-        "v" : "5.60",
+    var parametrs : Parameters = [
+        "v" : "5.126",
         "access_token": UserSession.instance.token,
         "filter" : "posts",
-        "count" : "100"
+        "count" : "10"
     ]
+    if let startTime = startTime {
+        parametrs["start_time"] = startTime
+    }
+    
+    if let startFrom = startFrom {
+        parametrs["start_from"] = startFrom
+    }
+    
+    
     AF.request(host + path,
                method: .get,
                parameters: parametrs)
@@ -108,13 +126,19 @@ func getFeed(_ completion: @escaping ([Feed], [Friends], [Groups]) -> Void){
                 let newsJSON = json["response"]["items"].arrayValue
                 let newsProfileJSON = json["response"]["profiles"].arrayValue
                 let newsGroupsJSON = json["response"]["groups"].arrayValue
+                let nextFrom = json["response"]["next_from"].stringValue
                 let feed = newsJSON.compactMap{Feed($0)}
-                let newsProfiles = newsProfileJSON.compactMap{Friends($0)}
+                let newsProfiles = newsProfileJSON.compactMap{Friend($0)}
                 let newsGroups = newsGroupsJSON.compactMap{Groups($0)}
-                completion(feed, newsProfiles, newsGroups)
+                DispatchQueue.main.async {
+                    completion(feed, newsProfiles, newsGroups, nextFrom)
+                }
+                
             case .failure(let error):
                 print(error)
             }
         }
 }
 }
+    
+

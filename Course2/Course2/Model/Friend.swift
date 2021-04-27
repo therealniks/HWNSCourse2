@@ -8,7 +8,7 @@
 import SwiftyJSON
 import RealmSwift
 
-class Friends: Object {
+class Friend: Object {
     @objc dynamic var firstName: String = ""
     @objc dynamic var lastName : String = ""
     @objc dynamic var id : Int = 0
@@ -20,7 +20,7 @@ class Friends: Object {
         self.lastName = json["last_name"].stringValue
         self.icon = json["photo_100"].stringValue
     }
-    let photos = List<Photos>()    
+    let photos = List<Photo>()
     override static func primaryKey()-> String? {
         return "id"
     }

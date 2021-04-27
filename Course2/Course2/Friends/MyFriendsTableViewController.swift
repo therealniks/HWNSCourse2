@@ -12,32 +12,19 @@ import RealmSwift
 class MyFriendsTableViewController: UITableViewController, UISearchBarDelegate {
 var networkService = NetworkService()
 
-    lazy var myFriends = networkService.realm.objects(Friends.self)
-    lazy var user = networkService.realm.objects(Friends.self)
-    var token: NotificationToken?
-
-    var filtredFriends = [Character : [Friends]]()
+    var myFriends = [Friend]()
+    private var filtredFriends = [Character : [Friend]]()
     @IBOutlet weak var searchBar : UISearchBar!
     var searching:Bool = false
-
-    func notification(){
-            token = myFriends.observe({ (changes: RealmCollectionChange) in
-                switch changes{
-                case .initial(let result):
-                    print(result)
-                case.update(_, deletions: _, insertions: _, modifications: _):
-                    self.tableView.reloadData()
-                case.error(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        }
     
+
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        networkService.getFriends(for: UserSession.instance.id){ [weak self] in
-            self?.loadFriendsData(for: UserSession.instance.id)
+        networkService.getFriends(for: UserSession.instance.id){ [weak self] myFriends in
+            self?.myFriends = myFriends
             self?.tableView.reloadData()
             }
     }
@@ -47,17 +34,12 @@ var networkService = NetworkService()
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myFriends.count
     }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath)
                 as? FriendsCell
         else { return UITableViewCell() }
-        let url = URL(string: myFriends[indexPath.row].icon)
-        let firstName = myFriends[indexPath.row].firstName
-        let lastName = myFriends[indexPath.row].lastName
-        cell.friendAvatar.photoImage.kf.setImage(with: url)
-        cell.friendID.text = "\(firstName) \(lastName)"
+        cell.configure(with: myFriends[indexPath.row])
         return cell
     }
 
@@ -83,11 +65,11 @@ extension MyFriendsTableViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            myFriends = user
+            //myFriends = user
             tableView.reloadData()
             return
         }
-        myFriends = user.filter("lastName BEGINSWITH '\(searchBar.text!)'")
+       // myFriends = user.filter("lastName BEGINSWITH '\(searchBar.text!)'")
         tableView.reloadData()
     }
     
@@ -96,33 +78,23 @@ extension MyFriendsTableViewController {
         tableView.endEditing(true)
         tableView.reloadData()
     }
-    
 
-    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.text = ""
-        tableView.endEditing(true)
-        tableView.reloadData()
-    }
-    
+//    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        searchBar.text = ""
+//        tableView.endEditing(true)
+//        tableView.reloadData()
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profilePhoto"{
             let profilePC = segue.destination as! ProfileCollectionController
             let indexPath = self.tableView.indexPathForSelectedRow
             let friend = self.myFriends[indexPath!.row]
-                profilePC.id = (friend.id)
-                print("id for photos is")
-                print(profilePC.id)
+            profilePC.id = (friend.id)
             }
         }
-        
-    func loadFriendsData(for id: Int){
-        do {
-            let realm = try Realm()
-            let friend = realm.objects(Friends.self)
-            self.myFriends = friend
-            }catch{
-                print ( error)
-            }
-    }   
 }
+
+
+
+

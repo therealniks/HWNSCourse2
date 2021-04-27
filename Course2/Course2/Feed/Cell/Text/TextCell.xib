@@ -9,31 +9,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="427" id="KGk-i7-Jjw" customClass="BodyCell" customModule="Course2" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="455" height="427"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TextCell" customModule="Course2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="629" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="455" height="427"/>
+                <rect key="frame" x="0.0" y="0.0" width="629" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hpb-Kg-w4K">
-                        <rect key="frame" x="4" y="4" width="447" height="419"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEp-XV-8GA">
+                        <rect key="frame" x="4" y="4" width="621" height="136"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </imageView>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="hpb-Kg-w4K" secondAttribute="bottom" constant="4" id="9qw-n2-XoG"/>
-                    <constraint firstItem="hpb-Kg-w4K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="X1O-LW-j0I"/>
-                    <constraint firstItem="hpb-Kg-w4K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="mLX-75-XvR"/>
-                    <constraint firstAttribute="trailing" secondItem="hpb-Kg-w4K" secondAttribute="trailing" constant="4" id="pGR-xy-tLf"/>
+                    <constraint firstAttribute="trailing" secondItem="sEp-XV-8GA" secondAttribute="trailing" constant="4" id="GUn-gK-cCm"/>
+                    <constraint firstAttribute="bottom" secondItem="sEp-XV-8GA" secondAttribute="bottom" constant="4" id="bAI-70-mjW"/>
+                    <constraint firstItem="sEp-XV-8GA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="fv7-zZ-TgE"/>
+                    <constraint firstItem="sEp-XV-8GA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="myJ-Ku-jyo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="feedImage" destination="hpb-Kg-w4K" id="fq9-jk-k6d"/>
+                <outlet property="feedText" destination="sEp-XV-8GA" id="vQr-gc-Afl"/>
             </connections>
-            <point key="canvasLocation" x="229.71014492753625" y="246.76339285714283"/>
+            <point key="canvasLocation" x="178" y="-41"/>
         </tableViewCell>
     </objects>
 </document>

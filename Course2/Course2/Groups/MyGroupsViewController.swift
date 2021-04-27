@@ -48,8 +48,8 @@ var networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.getGroups(for: UserSession.instance.id){ [weak self] in
-            self?.loadGroupsData(for: UserSession.instance.id)
+        networkService.getGroups(for: UserSession.instance.id){ [weak self] myGroups in
+            self?.myGroups = myGroups
             self?.tableView.reloadData()
         }
 
