@@ -27,7 +27,7 @@ Client for social network VKontakte
 ### Проект находится на ветке VKApp
 ### Примеры экранов:
 
-<img src="./screens/groups.png" width="400" />      <img src="./screens/friends.png" width="400" /> 
+<img src="./Course2//screens/groups.png" width="400" />      <img src="./Course2//screens/friends.png" width="400" /> 
 
 
-<img src="./screens/photos.png" width="400" />     <img src="./screens/news.png" width="400" />
+<img src="./Course2/screens/photos.png" width="400" />     <img src="./Course2//screens/news.png" width="400" />
